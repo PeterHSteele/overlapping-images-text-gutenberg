@@ -1,0 +1,47 @@
+/*!****************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/editor.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-create-block-ps-collage .block-editor-media-placeholder {
+  width: 100%;
+  height: 100%;
+}
+
+.ps-image-one-wrap,
+.ps-image-two-wrap {
+  border: 2px solid transparent;
+}
+
+.wp-block-create-block-ps-collage .block-editor-rich-text__editable {
+  border: 1px solid transparent;
+  padding: 0 2px;
+}
+
+.wp-block-create-block-ps-collage .block-editor-rich-text__editable:focus {
+  border: 1px dotted #333;
+}
+
+.ps-image-one-wrap:not(.el-selected):hover,
+.ps-image-two-wrap:not(.el-selected):hover {
+  border: 2px solid #6af;
+}
+
+.el-selected {
+  border: 2px solid #6af;
+  z-index: 2;
+}
+
+/*
+.wp-block-create-block-ps-collage .ps-text-wrap div .block-editor-rich-text__editable{
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  padding: 8px 18px;
+}
+*/
+
+/*# sourceMappingURL=index.css.map*/
