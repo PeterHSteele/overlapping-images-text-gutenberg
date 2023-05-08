@@ -72,12 +72,26 @@ export default function Edit({ attributes, setAttributes }) {
   }
 
   const { createErrorNotice } = useDispatch( noticesStore )
-  const onUploadError = message => {
-    createErrorNotice( message, { type: 'snackbar', explicitDismiss: true } )
-    setAttributes({
-      urlFirst: undefined
-    })
+  /*const onUploadError = whichImage => {
+    console.log('onUploadError')
+    return message => {
+      createErrorNotice( message, { type: 'snackbar' } )
+      const newAttributes = {
+        ['url'+whichImage]: undefined
+      }
+      console.log(newAttributes)
+      setAttributes(newAttributes)
+    }
+  }*/
+
+  const onUploadError = whichImage => message => {
+    createErrorNotice( message, { type: 'snackbar' } )
+    const newAttributes = {
+      ['url'+whichImage]: undefined
+    }
+    setAttributes(newAttributes)
   }
+  
 
   const togglePicker = () => setPicker(!picker)
 
@@ -113,6 +127,8 @@ export default function Edit({ attributes, setAttributes }) {
       <SelectWrap 
       className={`ps-image-one-wrap ${ 1==selectedEl? 'el-selected' : '' }`}
       handleClick={handleSelectEl(1)}
+      ariaLabel={__("Edit left image.", 'ps-collage')}
+      ariaPressed={1==selectedEl}
       >
       { attributes.urlFirst ?
         <img src={attributes.urlFirst} class="pscollage-image-one"  alt={attributes.altFirst} /> :
@@ -121,13 +137,15 @@ export default function Edit({ attributes, setAttributes }) {
         icon={icon}
         accept={"image/*"}
         allowedTypes={['image']}
-        onError={onUploadError}
+        onError={onUploadError("First")}
         />
       }
       </SelectWrap>
       <SelectWrap 
       className={`ps-image-two-wrap ${ 2 == selectedEl ? 'el-selected' : ''}`} 
       handleClick={handleSelectEl(2)}
+      ariaPressed={2 == selectedEl}
+      ariaLabel={__("Edit center image.", 'ps-collage')}
       >
       {
         attributes.urlSecond ?
@@ -137,13 +155,15 @@ export default function Edit({ attributes, setAttributes }) {
         icon={icon}
         accept={"image/*"}
         allowedTypes={['image']}
-        onError={onUploadError}
+        onError={onUploadError("Second")}
         />
       }
       </SelectWrap>
       <SelectWrap 
       className={`ps-innerblocks-wrap ${ 3 == selectedEl ? 'el-selected' : ''}`}
       handleClick={handleSelectEl(3)}
+      ariaPressed={3==selectedEl}
+      ariaLabel={__("Edit right text panel.", 'ps-collage')}
       >
         <InnerBlocks />
       </SelectWrap>

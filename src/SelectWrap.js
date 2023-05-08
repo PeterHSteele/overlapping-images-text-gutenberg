@@ -1,14 +1,17 @@
 import react from 'react';
 
-const SelectWrap = ( {children, className, handleClick, style = {} } ) => {
+const SelectWrap = ( {children, className,ariaPressed, handleClick, ariaLabel, style = {} } ) => {
   return (
-    <div
+    <button
+    type="button"
     className={className}
     onClick={ handleClick }
     style={style}
+    aria-pressed={ariaPressed}
+    aria-label={ariaLabel}
     >
       {children}
-    </div>
+    </button>
   )
 }
 

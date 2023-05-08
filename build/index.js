@@ -124,13 +124,18 @@ const SelectWrap = _ref => {
   let {
     children,
     className,
+    ariaPressed,
     handleClick,
+    ariaLabel,
     style = {}
   } = _ref;
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    type: "button",
     className: className,
     onClick: handleClick,
-    style: style
+    style: style,
+    "aria-pressed": ariaPressed,
+    "aria-label": ariaLabel
   }, children);
 };
 /* harmony default export */ __webpack_exports__["default"] = (SelectWrap);
@@ -241,14 +246,26 @@ function Edit(_ref) {
   const {
     createErrorNotice
   } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_9__.useDispatch)(_wordpress_notices__WEBPACK_IMPORTED_MODULE_8__.store);
-  const onUploadError = message => {
+  /*const onUploadError = whichImage => {
+    console.log('onUploadError')
+    return message => {
+      createErrorNotice( message, { type: 'snackbar' } )
+      const newAttributes = {
+        ['url'+whichImage]: undefined
+      }
+      console.log(newAttributes)
+      setAttributes(newAttributes)
+    }
+  }*/
+
+  const onUploadError = whichImage => message => {
     createErrorNotice(message, {
-      type: 'snackbar',
-      explicitDismiss: true
+      type: 'snackbar'
     });
-    setAttributes({
-      urlFirst: undefined
-    });
+    const newAttributes = {
+      ['url' + whichImage]: undefined
+    };
+    setAttributes(newAttributes);
   };
   const togglePicker = () => setPicker(!picker);
   const bgPicker = () => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ColorPicker, {
@@ -278,7 +295,9 @@ function Edit(_ref) {
     }
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_SelectWrap__WEBPACK_IMPORTED_MODULE_5__["default"], {
     className: `ps-image-one-wrap ${1 == selectedEl ? 'el-selected' : ''}`,
-    handleClick: handleSelectEl(1)
+    handleClick: handleSelectEl(1),
+    ariaLabel: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Edit left image.", 'ps-collage'),
+    ariaPressed: 1 == selectedEl
   }, attributes.urlFirst ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: attributes.urlFirst,
     class: "pscollage-image-one",
@@ -288,10 +307,12 @@ function Edit(_ref) {
     icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_11__["default"],
     accept: "image/*",
     allowedTypes: ['image'],
-    onError: onUploadError
+    onError: onUploadError("First")
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_SelectWrap__WEBPACK_IMPORTED_MODULE_5__["default"], {
     className: `ps-image-two-wrap ${2 == selectedEl ? 'el-selected' : ''}`,
-    handleClick: handleSelectEl(2)
+    handleClick: handleSelectEl(2),
+    ariaPressed: 2 == selectedEl,
+    ariaLabel: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Edit center image.", 'ps-collage')
   }, attributes.urlSecond ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: attributes.urlSecond,
     class: "pscollage-image-two",
@@ -301,10 +322,12 @@ function Edit(_ref) {
     icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_11__["default"],
     accept: "image/*",
     allowedTypes: ['image'],
-    onError: onUploadError
+    onError: onUploadError("Second")
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_SelectWrap__WEBPACK_IMPORTED_MODULE_5__["default"], {
     className: `ps-innerblocks-wrap ${3 == selectedEl ? 'el-selected' : ''}`,
-    handleClick: handleSelectEl(3)
+    handleClick: handleSelectEl(3),
+    ariaPressed: 3 == selectedEl,
+    ariaLabel: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Edit right text panel.", 'ps-collage')
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, null)));
 }
 //<Placeholder label={__('Collage Block', 'ps-collage')}>
