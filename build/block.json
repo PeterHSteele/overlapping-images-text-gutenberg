@@ -1,9 +1,9 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 2,
-  "name": "create-block/ps-collage",
+  "name": "overlapping-images-block/overlapping-images",
   "version": "0.1.0",
-  "title": "Ps Collage",
+  "title": "Overlapping Images",
   "category": "common",
   "icon": "images-alt",
   "description": "Overlapping text and image block.",
@@ -83,6 +83,10 @@
     "align": {
       "type": "string",
       "default": "full"
+    },
+    "layout": {
+      "type": "string",
+      "default": "down-up-text"
     }
   },
   "textdomain": "ps-collage",

@@ -30,7 +30,7 @@ import './editor.scss';
  * @return {WPElement} Element to render.
  */
 
-import { Popover, ColorPicker, ToolbarButton, PanelBody, TextControl } from '@wordpress/components';
+import { Popover, ColorPicker, Button, Panel, PanelBody, ToolbarButton, __experimentalGrid as Grid } from '@wordpress/components';
 
 import SelectWrap from './SelectWrap'; 
 import BackdropColorControl from './BackdropColorControl'
@@ -40,10 +40,9 @@ import { image as icon, brush } from '@wordpress/icons'
 import { store as noticesStore } from '@wordpress/notices';
 import { useDispatch } from '@wordpress/data'
 import { getBlobByURL, isBlobURL } from '@wordpress/blob';
+import { layoutButtonData } from './constants';
 
 export default function Edit({ attributes, setAttributes }) {
-
-  let { idFirst, urlFirst } = attributes
 
   let [ selectedEl, setSelectedEl ] = useState(1)
   let [ picker, setPicker ] = useState(false)
@@ -105,14 +104,14 @@ export default function Edit({ attributes, setAttributes }) {
   )
 
   const renderDropdownContent = pickerVisible => pickerVisible ? bgPicker() : null
-
+  const { layout, backdropColor, altFirst, urlFirst, idFirst } = attributes
 // <div className='ps-backdrop' style={{background: attributes.backdropColor}}>
 	return (
-		<div { ...useBlockProps() }>
+		<div { ...useBlockProps({ className: 'layout-' + layout }) }>
       <BlockControls>
         {[1,2].includes(selectedEl) && (
         <MediaReplaceFlow 
-        url={attributes.urlFirst} 
+        url={urlFirst} 
         allowedTypes={['image']}
         accept="image/*"
         onSelect={onSelect( 1 == selectedEl ? "First" : "Second" )}
@@ -123,7 +122,7 @@ export default function Edit({ attributes, setAttributes }) {
         renderContent={renderDropdownContent}
         />
       </BlockControls>
-      <div className="ps-backdrop" ref={setAnchor} style={{background: attributes.backdropColor}}></div>
+      <div className="ps-backdrop" ref={setAnchor} style={{background: backdropColor}}></div>
       <SelectWrap 
       className={`ps-image-one-wrap ${ 1==selectedEl? 'el-selected' : '' }`}
       handleClick={handleSelectEl(1)}
@@ -131,7 +130,7 @@ export default function Edit({ attributes, setAttributes }) {
       ariaPressed={1==selectedEl}
       >
       { attributes.urlFirst ?
-        <img src={attributes.urlFirst} class="pscollage-image-one"  alt={attributes.altFirst} /> :
+        <img src={urlFirst} class="pscollage-image-one"  alt={altFirst} /> :
         <MediaPlaceholder 
         onSelect={ onSelect('First') }
         icon={icon}
@@ -167,6 +166,28 @@ export default function Edit({ attributes, setAttributes }) {
       >
         <InnerBlocks />
       </SelectWrap>
+      <InspectorControls>
+        <Panel>
+          <PanelBody 
+          title={__('Layouts', 'overlapping-images')}
+          opened={true}
+          >
+            <Grid
+            columns={2}
+            rows={2}>
+            {layoutButtonData.map((layout, i) =>  (
+              <Button
+              variant="secondary"
+              label={layout.label}
+              onClick={()=>setAttributes({layout: layout.name})}
+              >
+                {'Layout '+i}
+              </Button>
+            ))}
+            </Grid>
+          </PanelBody>
+        </Panel>
+      </InspectorControls>
 		</div>
 	);
 }

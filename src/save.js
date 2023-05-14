@@ -30,7 +30,7 @@ import { useBlockProps, RichText, InnerBlocks } from '@wordpress/block-editor';
  */
 
 export default function save({ attributes }) {
-  const blockProps = useBlockProps.save();
+  const blockProps = useBlockProps.save({className: 'layout-' + attributes.layout});
   const { heading, text, callToActionLink, callToActionText, urlFirst, altFirst, urlSecond, altSecond, backdropColor } = attributes
 	return (
     <div { ...blockProps }>
@@ -39,7 +39,7 @@ export default function save({ attributes }) {
         <img class="pscollage-image-one" src={urlFirst} alt={altFirst} />
       </div>
       <div className="ps-image-two-wrap">
-        <img class="pscollage-image-two" src={urlSecond} alt={altSecond} />
+        <img class="pscollage-image-two" src={urlSecond} alt='' role='presentation' />
       </div>
       <div className="ps-innerblocks-wrap">
         <InnerBlocks.Content />

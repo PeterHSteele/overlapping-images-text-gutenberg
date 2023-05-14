@@ -1,0 +1,82 @@
+@import './layout-mixins.scss';
+
+.wp-block-overlapping-images-block-overlapping-images.layout-text-up-down{
+  
+  .ps-innerblocks-wrap{
+    @include left-large;
+  }
+  
+  .ps-image-one-wrap{
+    @include right-large;
+    @include bottom-leftright-large
+  }
+  
+  .ps-image-two-wrap{
+    @include top-center-large;
+  }
+  
+  
+  @media (max-width: 1490px){
+    .ps-image-one-wrap{
+      @include medium-right;
+    }
+  
+    .ps-innerblocks-wrap{
+      @include medium-left;
+    }
+  }
+
+}
+
+@media (max-width: 1070px){
+  .wp-block-overlapping-images-block-overlapping-images.layout-text-up-down{
+    .ps-innerblocks-wrap{
+      grid-row-start: 2;
+    }
+  }
+}
+
+@media (max-width: 768px){
+  .wp-block-overlapping-images-block-overlapping-images.layout-text-up-down{
+
+    .ps-image-one-wrap{
+      @include small-image-right;
+      @include small-image-down;
+    }
+    
+    .ps-image-two-wrap{
+      @include small-image-left;
+      @include small-image-up;
+    }
+  }
+}
+
+@media (max-width: 650px){
+  .wp-block-overlapping-images-block-overlapping-images.layout-text-up-down{
+    
+    .ps-image-one-wrap{
+      @include vsmall-right;
+    }
+
+    .ps-image-two-wrap{
+      @include vsmall-left;
+    }
+  }
+}
+
+@media (max-width: 500px){
+  .wp-block-overlapping-images-block-overlapping-images.layout-text-up-down{
+
+    .ps-image-one-wrap{
+      @include tiny-right;
+      @include tiny-down;
+    }
+
+    .ps-image-two-wrap{
+      @include tiny-left;
+      @include tiny-up;
+    }
+    
+  }
+
+}

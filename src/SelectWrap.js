@@ -2,8 +2,7 @@ import react from 'react';
 
 const SelectWrap = ( {children, className,ariaPressed, handleClick, ariaLabel, style = {} } ) => {
   return (
-    <button
-    type="button"
+    <div
     className={className}
     onClick={ handleClick }
     style={style}
@@ -11,7 +10,7 @@ const SelectWrap = ( {children, className,ariaPressed, handleClick, ariaLabel, s
     aria-label={ariaLabel}
     >
       {children}
-    </button>
+    </div>
   )
 }
 
