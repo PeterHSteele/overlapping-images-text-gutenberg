@@ -132,9 +132,7 @@ const SelectWrap = _ref => {
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: className,
     onClick: handleClick,
-    style: style,
-    "aria-pressed": ariaPressed,
-    "aria-label": ariaLabel
+    style: style
   }, children);
 };
 /* harmony default export */ __webpack_exports__["default"] = (SelectWrap);
@@ -330,9 +328,7 @@ function Edit(_ref) {
     }
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_SelectWrap__WEBPACK_IMPORTED_MODULE_5__["default"], {
     className: `ps-image-one-wrap ${1 == selectedEl ? 'el-selected' : ''}`,
-    handleClick: handleSelectEl(1),
-    ariaLabel: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Edit left image.", 'ps-collage'),
-    ariaPressed: 1 == selectedEl
+    handleClick: handleSelectEl(1)
   }, attributes.urlFirst ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: urlFirst,
     class: "pscollage-image-one",
@@ -345,9 +341,7 @@ function Edit(_ref) {
     onError: onUploadError("First")
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_SelectWrap__WEBPACK_IMPORTED_MODULE_5__["default"], {
     className: `ps-image-two-wrap ${2 == selectedEl ? 'el-selected' : ''}`,
-    handleClick: handleSelectEl(2),
-    ariaPressed: 2 == selectedEl,
-    ariaLabel: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Edit center image.", 'ps-collage')
+    handleClick: handleSelectEl(2)
   }, attributes.urlSecond ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: attributes.urlSecond,
     class: "pscollage-image-two",
@@ -361,8 +355,7 @@ function Edit(_ref) {
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_SelectWrap__WEBPACK_IMPORTED_MODULE_5__["default"], {
     className: `ps-innerblocks-wrap ${3 == selectedEl ? 'el-selected' : ''}`,
     handleClick: handleSelectEl(3),
-    ariaPressed: 3 == selectedEl,
-    ariaLabel: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Edit right text panel.", 'ps-collage')
+    ariaPressed: 3 == selectedEl
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, null)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Panel, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Layouts', 'overlapping-images'),
     opened: true

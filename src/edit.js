@@ -126,8 +126,6 @@ export default function Edit({ attributes, setAttributes }) {
       <SelectWrap 
       className={`ps-image-one-wrap ${ 1==selectedEl? 'el-selected' : '' }`}
       handleClick={handleSelectEl(1)}
-      ariaLabel={__("Edit left image.", 'ps-collage')}
-      ariaPressed={1==selectedEl}
       >
       { attributes.urlFirst ?
         <img src={urlFirst} class="pscollage-image-one"  alt={altFirst} /> :
@@ -143,8 +141,6 @@ export default function Edit({ attributes, setAttributes }) {
       <SelectWrap 
       className={`ps-image-two-wrap ${ 2 == selectedEl ? 'el-selected' : ''}`} 
       handleClick={handleSelectEl(2)}
-      ariaPressed={2 == selectedEl}
-      ariaLabel={__("Edit center image.", 'ps-collage')}
       >
       {
         attributes.urlSecond ?
@@ -162,7 +158,6 @@ export default function Edit({ attributes, setAttributes }) {
       className={`ps-innerblocks-wrap ${ 3 == selectedEl ? 'el-selected' : ''}`}
       handleClick={handleSelectEl(3)}
       ariaPressed={3==selectedEl}
-      ariaLabel={__("Edit right text panel.", 'ps-collage')}
       >
         <InnerBlocks />
       </SelectWrap>
