@@ -5,7 +5,6 @@
  */
 
 .wp-block-overlapping-images-block-overlapping-images {
-	//border: 1px dotted #f00;
 
   .block-editor-media-placeholder{
     width: 100%;
@@ -13,9 +12,9 @@
   }
 }
 
-.ps-image-one-wrap,
-.ps-image-two-wrap,
-.ps-innerblocks-wrap{
+.overlapping-imgs-image-one-wrap,
+.overlapping-imgs-image-two-wrap,
+.overlapping-imgs-innerblocks-wrap{
 	background: none;
 	color: inherit;
 	border: none;
@@ -27,7 +26,7 @@
   margin: -2px;
 }
 
-.ps-backdrop{
+.overlapping-imgs-backdrop{
   margin: -2px;
 }
 
@@ -40,9 +39,9 @@
   border: 1px dotted #333;
 }
 
-.ps-image-one-wrap:not(.el-selected),
-.ps-image-two-wrap:not(.el-selected),
-.ps-innerblocks-wrap{
+.overlapping-imgs-image-one-wrap:not(.el-selected),
+.overlapping-imgs-image-two-wrap:not(.el-selected),
+.overlapping-imgs-innerblocks-wrap{
   &:hover{
     border: 2px solid #6af;
   }
@@ -52,11 +51,3 @@
   border: 2px solid #6af;
   z-index: 2
 }
-/*
-.wp-block-create-block-ps-collage .ps-text-wrap div .block-editor-rich-text__editable{
-  display: inline-block;
-  background: #000;
-  color: #fff;
-  padding: 8px 18px;
-}
-*/

@@ -21,53 +21,53 @@
   max-height: 660px;
   container-type: inline-size;
 
-  img.pscollage-image-one,
-  img.pscollage-image-two{
+  img.overlapping-imgs-image-one,
+  img.overlapping-imgs-image-two{
     height: 100%;
     width: 100%;
     object-fit: cover;
     box-sizing: border-box;
   }
 
-  .ps-backdrop{
+  .overlapping-imgs-backdrop{
     grid-row: 2 / 12;
     grid-column: 1 / 19;
   }
 
-  .ps-image-one-wrap img{
+  .overlapping-imgs-image-one-wrap img{
     border: 16px solid #fff;
   }
 
-  .ps-innerblocks-wrap{
+  .overlapping-imgs-innerblocks-wrap{
     background: #fff;
     padding: 32px;
   }
 
-  .ps-image-one-wrap{
+  .overlapping-imgs-image-one-wrap{
     z-index: 1;
   }
 
   @container (max-width: 1070px){
 
-    .ps-innerblocks-wrap{
+    .overlapping-imgs-innerblocks-wrap{
       padding: 16px;
     }
   }
 
   @container (max-width: 768px){
   
-    .ps-innerblocks-wrap{
+    .overlapping-imgs-innerblocks-wrap{
       z-index: 1;
     }
   
-    .ps-image-one-wrap{
+    .overlapping-imgs-image-one-wrap{
       z-index: 0;
     }
   }
   
   @container (max-width: 650px){
   
-      .ps-innerblocks-wrap{
+      .overlapping-imgs-innerblocks-wrap{
         grid-column: 4 / 16;
       }
   

@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps, MediaPlaceholder, RichText, MediaReplaceFlow, InspectorControls, BlockControls, InnerBlocks } from '@wordpress/block-editor';
+import { useBlockProps, MediaPlaceholder, MediaReplaceFlow, InspectorControls, BlockControls, InnerBlocks } from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -30,16 +30,16 @@ import './editor.scss';
  * @return {WPElement} Element to render.
  */
 
-import { Popover, ColorPicker, Button, Panel, PanelBody, ToolbarButton, __experimentalGrid as Grid } from '@wordpress/components';
+import { ColorPicker, Button, Panel, PanelBody, __experimentalGrid as Grid } from '@wordpress/components';
 
 import SelectWrap from './SelectWrap'; 
 import BackdropColorControl from './BackdropColorControl'
 
-import { useState, useRef } from 'react'
-import { image as icon, brush } from '@wordpress/icons'
+import { useState } from 'react'
+import { image as icon } from '@wordpress/icons'
 import { store as noticesStore } from '@wordpress/notices';
 import { useDispatch } from '@wordpress/data'
-import { getBlobByURL, isBlobURL } from '@wordpress/blob';
+import { isBlobURL } from '@wordpress/blob';
 import { layoutButtonData } from './constants';
 
 export default function Edit({ attributes, setAttributes }) {
@@ -47,7 +47,6 @@ export default function Edit({ attributes, setAttributes }) {
   let [ selectedEl, setSelectedEl ] = useState(1)
   let [ picker, setPicker ] = useState(false)
   let [ anchor, setAnchor] = useState()
-  let [ isEditingURL, setIsEditingURL ] = useState(false)
 
   const handleSelectEl = el => {
     return () => {
@@ -71,17 +70,6 @@ export default function Edit({ attributes, setAttributes }) {
   }
 
   const { createErrorNotice } = useDispatch( noticesStore )
-  /*const onUploadError = whichImage => {
-    console.log('onUploadError')
-    return message => {
-      createErrorNotice( message, { type: 'snackbar' } )
-      const newAttributes = {
-        ['url'+whichImage]: undefined
-      }
-      console.log(newAttributes)
-      setAttributes(newAttributes)
-    }
-  }*/
 
   const onUploadError = whichImage => message => {
     createErrorNotice( message, { type: 'snackbar' } )
@@ -105,7 +93,7 @@ export default function Edit({ attributes, setAttributes }) {
 
   const renderDropdownContent = pickerVisible => pickerVisible ? bgPicker() : null
   const { layout, backdropColor, altFirst, urlFirst, idFirst } = attributes
-// <div className='ps-backdrop' style={{background: attributes.backdropColor}}>
+
 	return (
 		<div { ...useBlockProps({ className: 'layout-' + layout }) }>
       <BlockControls>
@@ -122,13 +110,13 @@ export default function Edit({ attributes, setAttributes }) {
         renderContent={renderDropdownContent}
         />
       </BlockControls>
-      <div className="ps-backdrop" ref={setAnchor} style={{background: backdropColor}}></div>
+      <div className="overlapping-imgs-backdrop" ref={setAnchor} style={{background: backdropColor}}></div>
       <SelectWrap 
-      className={`ps-image-one-wrap ${ 1==selectedEl? 'el-selected' : '' }`}
+      className={`overlapping-imgs-image-one-wrap ${ 1==selectedEl? 'el-selected' : '' }`}
       handleClick={handleSelectEl(1)}
       >
       { attributes.urlFirst ?
-        <img src={urlFirst} class="pscollage-image-one"  alt={altFirst} /> :
+        <img src={urlFirst} class="overlapping-imgs-image-one"  alt={altFirst} /> :
         <MediaPlaceholder 
         onSelect={ onSelect('First') }
         icon={icon}
@@ -139,12 +127,12 @@ export default function Edit({ attributes, setAttributes }) {
       }
       </SelectWrap>
       <SelectWrap 
-      className={`ps-image-two-wrap ${ 2 == selectedEl ? 'el-selected' : ''}`} 
+      className={`overlapping-imgs-image-two-wrap ${ 2 == selectedEl ? 'el-selected' : ''}`} 
       handleClick={handleSelectEl(2)}
       >
       {
         attributes.urlSecond ?
-        <img src={attributes.urlSecond} class="pscollage-image-two" alt={attributes.altSecond} /> :
+        <img src={attributes.urlSecond} class="overlapping-imgs-image-two" alt={attributes.altSecond} /> :
         <MediaPlaceholder 
         onSelect={ onSelect('Second') }
         icon={icon}
@@ -155,7 +143,7 @@ export default function Edit({ attributes, setAttributes }) {
       }
       </SelectWrap>
       <SelectWrap 
-      className={`ps-innerblocks-wrap ${ 3 == selectedEl ? 'el-selected' : ''}`}
+      className={`overlapping-imgs-innerblocks-wrap ${ 3 == selectedEl ? 'el-selected' : ''}`}
       handleClick={handleSelectEl(3)}
       >
         <InnerBlocks />
@@ -185,99 +173,3 @@ export default function Edit({ attributes, setAttributes }) {
 		</div>
 	);
 }
-//<Placeholder label={__('Collage Block', 'ps-collage')}>
-//<FormFileUpload onChange={ value => alert(value )} >Select File</FormFileUpload>
-//</Placeholder>
-
-/*
-<div>
-        <img src={attributes.urlFirst} />
-      </div>
-
-      <TextControl label="Heading" value={attributes.heading} onChange={heading=>setAttributes({heading})} /> 
-
-      <RichText 
-        tagName='h2'
-        value={ attributes.heading }
-        onchange={ heading => setAttributes({heading})}
-        allowedFormats={ [ 'core/bold', 'core/italic' ] }
-        aria-label={__('Heading for the textual portion of the block.', 'ps-collage')}
-        placeholder={__('Work With Us!', 'ps-collage')}
-        />
-
-        <SelectWrap
-      handleClick={handleSelectEl(0)}
-      className={`ps-backdrop ${ 0===selectedEl? 'el-selected' : '' }`}
-      style={{background: attributes.backdropColor}}
-      > 
-      </SelectWrap>
-
-      <RichText
-        tagName='p'
-        value={ attributes.callToActionText }
-        onChange={callToActionText => setAttributes({ callToActionText })}
-        allowedFormats={[ 'core/bold', 'core/italic', 'core/link']}
-        aria-label={__('Enter text for call to action button.', 'ps-collage' )}
-        placeholder={__('Learn More', 'ps-collage')}
-        />
-
-        {
-          3 == selectedEl && (
-            <LinkControl 
-            value={{callToActionLink}}
-            onChange={({
-              url: newURL = ''
-            })=>{
-              setAttributes({url: prependHTTP(newURL)})
-            }
-            }
-            />
-          )
-        } 
-
-
-  <SelectWrap 
-      className={`ps-text-wrap ${ 3 == selectedEl ? 'el-selected' : ''}`}
-      handleClick={handleSelectEl(3)}
-      >
-        <RichText 
-        tagName='h2'
-        value={ attributes.heading }
-        onChange={ heading => setAttributes({heading})}
-        allowedFormats={ [ 'core/bold', 'core/italic' ] }
-        aria-label={__('Heading for the textual portion of the block.', 'ps-collage')}
-        placeholder={__('Work With Us!', 'ps-collage')}
-        />
-        <RichText
-        tagName='p'
-        value={ attributes.text }
-        onChange={ text => setAttributes({ text })}
-        allowedFormats={ [ 'core/bold', 'core/italic', 'core/link' ] }
-        aria-label={__('Body Text', 'ps-collage' )}
-        placeholder={__("Flavor Text...", 'ps-collage')}
-        />
-        <div className="ps-buttonrow">
-          <div class="ps-button">
-            <RichText
-            tagName='p'
-            value={ attributes.callToActionText }
-            className="ps-cta-button"
-            onChange={handleLinkTextChange}
-            withoutInteractiveFormatting
-            aria-label={__('Enter text for call to action button.', 'ps-collage' )}
-            placeholder={__('Learn More', 'ps-collage')}
-            />
-          </div>
-        </div>
-      </SelectWrap>
-      <InspectorControls>
-        <PanelBody title={__('Settings', 'ps-collage')}>
-          <TextControl 
-          value={attributes.callToActionLink}
-          onChange={callToActionLink=>setAttributes({callToActionLink})}
-          label={__('Link URL for Call to Action Button', 'ps-collage')}
-          />
-        </PanelBody>
-      </InspectorControls>
-*/
-

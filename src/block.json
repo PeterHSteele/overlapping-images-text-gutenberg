@@ -42,7 +42,7 @@
     },
     "urlFirst": {
       "type": "string",
-      "selector": "img.pscollage-image-one",
+      "selector": "img.overlapping-imgs-image-one",
       "source": "attribute",
       "attribute": "src"
     },
@@ -54,25 +54,18 @@
       "type": "string",
       "src": "attribute",
       "attribute": "alt",
-      "selector": "img.pscollage-image-one",
+      "selector": "img.overlapping-imgs-image-one",
       "default": ""
     },
     "urlSecond": {
       "type": "string",
-      "selector": "img.pscollage-image-two",
+      "selector": "img.overlapping-imgs-image-two",
       "source": "attribute",
       "attribute": "src"
     },
     "idSecond": {
       "type": "number",
       "default": 0
-    },
-    "altSecond":{
-      "type": "string",
-      "src": "attribute",
-      "attribute": "alt",
-      "selector": "img.pscollage-image-two",
-      "default": ""
     },
     "backdropColor": {
       "type": "string",
@@ -87,7 +80,7 @@
       "default": "down-up-text"
     }
   },
-	"textdomain": "ps-collage",
+	"textdomain": "overlapping-images",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css"

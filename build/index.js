@@ -82,8 +82,8 @@ __webpack_require__.r(__webpack_exports__);
   } = _ref;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Dropdown, {
     popoverProps: {
-      className: 'ps-collage-bg-color-control',
-      headerTitle: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Backdrop Color', 'ps-collage'),
+      className: 'overlapping-imgs-collage-bg-color-control',
+      headerTitle: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Backdrop Color', 'overlapping-images'),
       variant: 'toolbar',
       placement: 'bottom-start'
     },
@@ -95,9 +95,9 @@ __webpack_require__.r(__webpack_exports__);
       } = _ref2;
       return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ToolbarButton, {
         icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_3__["default"],
-        subscript: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Backdrop Color', 'ps-collage'),
-        describedBy: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Choose backdrop color', 'ps-collage'),
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Backdrop Color', 'ps-collage'),
+        subscript: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Backdrop Color', 'overlapping-images'),
+        describedBy: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Choose backdrop color', 'overlapping-images'),
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Backdrop Color', 'overlapping-images'),
         showTooltip: true,
         onClick: onToggle
       });
@@ -116,17 +116,12 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-
 
 const SelectWrap = _ref => {
   let {
     children,
     className,
-    ariaPressed,
     handleClick,
-    ariaLabel,
     style = {}
   } = _ref;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -250,7 +245,6 @@ function Edit(_ref) {
   let [selectedEl, setSelectedEl] = (0,react__WEBPACK_IMPORTED_MODULE_7__.useState)(1);
   let [picker, setPicker] = (0,react__WEBPACK_IMPORTED_MODULE_7__.useState)(false);
   let [anchor, setAnchor] = (0,react__WEBPACK_IMPORTED_MODULE_7__.useState)();
-  let [isEditingURL, setIsEditingURL] = (0,react__WEBPACK_IMPORTED_MODULE_7__.useState)(false);
   const handleSelectEl = el => {
     return () => {
       return setSelectedEl(el);
@@ -271,18 +265,6 @@ function Edit(_ref) {
   const {
     createErrorNotice
   } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_9__.useDispatch)(_wordpress_notices__WEBPACK_IMPORTED_MODULE_8__.store);
-  /*const onUploadError = whichImage => {
-    console.log('onUploadError')
-    return message => {
-      createErrorNotice( message, { type: 'snackbar' } )
-      const newAttributes = {
-        ['url'+whichImage]: undefined
-      }
-      console.log(newAttributes)
-      setAttributes(newAttributes)
-    }
-  }*/
-
   const onUploadError = whichImage => message => {
     createErrorNotice(message, {
       type: 'snackbar'
@@ -309,7 +291,6 @@ function Edit(_ref) {
     urlFirst,
     idFirst
   } = attributes;
-  // <div className='ps-backdrop' style={{background: attributes.backdropColor}}>
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
     className: 'layout-' + layout
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.BlockControls, null, [1, 2].includes(selectedEl) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaReplaceFlow, {
@@ -321,17 +302,17 @@ function Edit(_ref) {
     handleClick: togglePicker,
     renderContent: renderDropdownContent
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "ps-backdrop",
+    className: "overlapping-imgs-backdrop",
     ref: setAnchor,
     style: {
       background: backdropColor
     }
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_SelectWrap__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    className: `ps-image-one-wrap ${1 == selectedEl ? 'el-selected' : ''}`,
+    className: `overlapping-imgs-image-one-wrap ${1 == selectedEl ? 'el-selected' : ''}`,
     handleClick: handleSelectEl(1)
   }, attributes.urlFirst ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: urlFirst,
-    class: "pscollage-image-one",
+    class: "overlapping-imgs-image-one",
     alt: altFirst
   }) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaPlaceholder, {
     onSelect: onSelect('First'),
@@ -340,11 +321,11 @@ function Edit(_ref) {
     allowedTypes: ['image'],
     onError: onUploadError("First")
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_SelectWrap__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    className: `ps-image-two-wrap ${2 == selectedEl ? 'el-selected' : ''}`,
+    className: `overlapping-imgs-image-two-wrap ${2 == selectedEl ? 'el-selected' : ''}`,
     handleClick: handleSelectEl(2)
   }, attributes.urlSecond ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: attributes.urlSecond,
-    class: "pscollage-image-two",
+    class: "overlapping-imgs-image-two",
     alt: attributes.altSecond
   }) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaPlaceholder, {
     onSelect: onSelect('Second'),
@@ -353,7 +334,7 @@ function Edit(_ref) {
     allowedTypes: ['image'],
     onError: onUploadError("Second")
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_SelectWrap__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    className: `ps-innerblocks-wrap ${3 == selectedEl ? 'el-selected' : ''}`,
+    className: `overlapping-imgs-innerblocks-wrap ${3 == selectedEl ? 'el-selected' : ''}`,
     handleClick: handleSelectEl(3)
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, null)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Panel, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Layouts', 'overlapping-images'),
@@ -369,101 +350,6 @@ function Edit(_ref) {
     })
   }, 'Layout ' + i)))))));
 }
-//<Placeholder label={__('Collage Block', 'ps-collage')}>
-//<FormFileUpload onChange={ value => alert(value )} >Select File</FormFileUpload>
-//</Placeholder>
-
-/*
-<div>
-        <img src={attributes.urlFirst} />
-      </div>
-
-      <TextControl label="Heading" value={attributes.heading} onChange={heading=>setAttributes({heading})} /> 
-
-      <RichText 
-        tagName='h2'
-        value={ attributes.heading }
-        onchange={ heading => setAttributes({heading})}
-        allowedFormats={ [ 'core/bold', 'core/italic' ] }
-        aria-label={__('Heading for the textual portion of the block.', 'ps-collage')}
-        placeholder={__('Work With Us!', 'ps-collage')}
-        />
-
-        <SelectWrap
-      handleClick={handleSelectEl(0)}
-      className={`ps-backdrop ${ 0===selectedEl? 'el-selected' : '' }`}
-      style={{background: attributes.backdropColor}}
-      > 
-      </SelectWrap>
-
-      <RichText
-        tagName='p'
-        value={ attributes.callToActionText }
-        onChange={callToActionText => setAttributes({ callToActionText })}
-        allowedFormats={[ 'core/bold', 'core/italic', 'core/link']}
-        aria-label={__('Enter text for call to action button.', 'ps-collage' )}
-        placeholder={__('Learn More', 'ps-collage')}
-        />
-
-        {
-          3 == selectedEl && (
-            <LinkControl 
-            value={{callToActionLink}}
-            onChange={({
-              url: newURL = ''
-            })=>{
-              setAttributes({url: prependHTTP(newURL)})
-            }
-            }
-            />
-          )
-        } 
-
-
-  <SelectWrap 
-      className={`ps-text-wrap ${ 3 == selectedEl ? 'el-selected' : ''}`}
-      handleClick={handleSelectEl(3)}
-      >
-        <RichText 
-        tagName='h2'
-        value={ attributes.heading }
-        onChange={ heading => setAttributes({heading})}
-        allowedFormats={ [ 'core/bold', 'core/italic' ] }
-        aria-label={__('Heading for the textual portion of the block.', 'ps-collage')}
-        placeholder={__('Work With Us!', 'ps-collage')}
-        />
-        <RichText
-        tagName='p'
-        value={ attributes.text }
-        onChange={ text => setAttributes({ text })}
-        allowedFormats={ [ 'core/bold', 'core/italic', 'core/link' ] }
-        aria-label={__('Body Text', 'ps-collage' )}
-        placeholder={__("Flavor Text...", 'ps-collage')}
-        />
-        <div className="ps-buttonrow">
-          <div class="ps-button">
-            <RichText
-            tagName='p'
-            value={ attributes.callToActionText }
-            className="ps-cta-button"
-            onChange={handleLinkTextChange}
-            withoutInteractiveFormatting
-            aria-label={__('Enter text for call to action button.', 'ps-collage' )}
-            placeholder={__('Learn More', 'ps-collage')}
-            />
-          </div>
-        </div>
-      </SelectWrap>
-      <InspectorControls>
-        <PanelBody title={__('Settings', 'ps-collage')}>
-          <TextControl 
-          value={attributes.callToActionLink}
-          onChange={callToActionLink=>setAttributes({callToActionLink})}
-          label={__('Link URL for Call to Action Button', 'ps-collage')}
-          />
-        </PanelBody>
-      </InspectorControls>
-*/
 
 /***/ }),
 
@@ -586,25 +472,25 @@ function save(_ref) {
     backdropColor
   } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "ps-backdrop",
+    className: "overlapping-imgs-backdrop",
     style: {
       background: backdropColor
     }
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "ps-image-one-wrap"
+    className: "overlapping-imgs-image-one-wrap"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-    class: "pscollage-image-one",
+    class: "overlapping-imgs-image-one",
     src: urlFirst,
     alt: altFirst
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "ps-image-two-wrap"
+    className: "overlapping-imgs-image-two-wrap"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-    class: "pscollage-image-two",
+    class: "overlapping-imgs-image-two",
     src: urlSecond,
     alt: "",
     role: "presentation"
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "ps-innerblocks-wrap"
+    className: "overlapping-imgs-innerblocks-wrap"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks.Content, null)));
 }
 
@@ -740,7 +626,7 @@ module.exports = window["wp"]["primitives"];
   \************************/
 /***/ (function(module) {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"overlapping-images-block/overlapping-images","version":"0.1.0","title":"Overlapping Images","category":"common","icon":"images-alt","description":"Overlapping text and image block.","supports":{"html":false,"color":{"background":true},"align":["full","wide"]},"attributes":{"heading":{"type":"string","source":"html","selector":"h2","default":""},"text":{"type":"string","source":"html","selector":"p","default":""},"callToActionText":{"type":"string","source":"html","selector":"a","default":""},"callToActionLink":{"type":"string","source":"attribute","attribute":"href","selector":"a","default":""},"urlFirst":{"type":"string","selector":"img.pscollage-image-one","source":"attribute","attribute":"src"},"idFirst":{"type":"number","default":0},"altFirst":{"type":"string","src":"attribute","attribute":"alt","selector":"img.pscollage-image-one","default":""},"urlSecond":{"type":"string","selector":"img.pscollage-image-two","source":"attribute","attribute":"src"},"idSecond":{"type":"number","default":0},"altSecond":{"type":"string","src":"attribute","attribute":"alt","selector":"img.pscollage-image-two","default":""},"backdropColor":{"type":"string","default":"#faf3f0"},"align":{"type":"string","default":"full"},"layout":{"type":"string","default":"down-up-text"}},"textdomain":"ps-collage","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"overlapping-images-block/overlapping-images","version":"0.1.0","title":"Overlapping Images","category":"common","icon":"images-alt","description":"Overlapping text and image block.","supports":{"html":false,"color":{"background":true},"align":["full","wide"]},"attributes":{"heading":{"type":"string","source":"html","selector":"h2","default":""},"text":{"type":"string","source":"html","selector":"p","default":""},"callToActionText":{"type":"string","source":"html","selector":"a","default":""},"callToActionLink":{"type":"string","source":"attribute","attribute":"href","selector":"a","default":""},"urlFirst":{"type":"string","selector":"img.overlapping-imgs-image-one","source":"attribute","attribute":"src"},"idFirst":{"type":"number","default":0},"altFirst":{"type":"string","src":"attribute","attribute":"alt","selector":"img.overlapping-imgs-image-one","default":""},"urlSecond":{"type":"string","selector":"img.overlapping-imgs-image-two","source":"attribute","attribute":"src"},"idSecond":{"type":"number","default":0},"backdropColor":{"type":"string","default":"#faf3f0"},"align":{"type":"string","default":"full"},"layout":{"type":"string","default":"down-up-text"}},"textdomain":"overlapping-images","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

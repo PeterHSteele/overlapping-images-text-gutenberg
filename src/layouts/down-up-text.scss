@@ -1,54 +1,54 @@
 .wp-block-overlapping-images-block-overlapping-images.layout-down-up-text{
   
-  .ps-innerblocks-wrap{
+  .overlapping-imgs-innerblocks-wrap{
     grid-column: 11 / 17;
     grid-row: 4 / 10;
   }
   
-  .ps-image-one-wrap{
+  .overlapping-imgs-image-one-wrap{
     grid-column: 3 / 9;
     grid-row: 3 / 13;
   }
   
-  .ps-image-two-wrap{
+  .overlapping-imgs-image-two-wrap{
     grid-row: 1 / 12;
     grid-column: 7 / 13;
   }
   
 
-@container (max-width: 1490px){
-  .ps-image-one-wrap{
+@container (max-width: 1368px){
+  .overlapping-imgs-image-one-wrap{
     grid-column: 2 / 9;
   }
 
-  .ps-image-two-wrap{
+  .overlapping-imgs-image-two-wrap{
     grid-column: 6 / 13;
   }
 
-  .ps-innerblocks-wrap{
+  .overlapping-imgs-innerblocks-wrap{
     grid-column: 11 / 18;
   }
 }
 
 @container (max-width: 1070px){
-  .ps-innerblocks-wrap{
+  .overlapping-imgs-innerblocks-wrap{
     grid-row: 4 / 11;//change
   }
 }
 
 @container (max-width: 768px){
 
-  .ps-image-one-wrap{
+  .overlapping-imgs-image-one-wrap{
     grid-column: 2 / 11;
     grid-row: 3 / 9;
   }
 
-  .ps-innerblocks-wrap{
+  .overlapping-imgs-innerblocks-wrap{
     grid-row: 6 / 11;
     grid-column: 5 / 15;
   }
   
-  .ps-image-two-wrap{
+  .overlapping-imgs-image-two-wrap{
     grid-column: 9 / 18;
     grid-row: 1 / 7;
   }
@@ -57,27 +57,27 @@
 
 @container (max-width: 650px){
     
-    .ps-image-one-wrap{
+    .overlapping-imgs-image-one-wrap{
       grid-column: 3 / 11;
     }
 
-    .ps-image-two-wrap{
+    .overlapping-imgs-image-two-wrap{
       grid-column: 9 / 17;
     }
 }
 
 @container (max-width: 584px){
 
-    .ps-innerblocks-wrap{
+    .overlapping-imgs-innerblocks-wrap{
       grid-column: 4 / 16;
     }
 
-    .ps-image-one-wrap{
+    .overlapping-imgs-image-one-wrap{
       grid-column: 4 / 12;
       grid-row: 2 / 8;
     }
 
-    .ps-image-two-wrap{
+    .overlapping-imgs-image-two-wrap{
       grid-column: 8 / 16;
       grid-row: 1 / 7;
     }
@@ -86,15 +86,15 @@
 
   @container (max-width: 488px){
 
-    .ps-innerblocks-wrap{
+    .overlapping-imgs-innerblocks-wrap{
       grid-column: 2 / 18;
     }
 
-    .ps-image-one-wrap{
+    .overlapping-imgs-image-one-wrap{
       grid-column: 2 / 11; 
     }
 
-    .ps-image-two-wrap{
+    .overlapping-imgs-image-two-wrap{
       grid-column: 9 / 18;
     }
 
@@ -102,15 +102,15 @@
 
   @container (max-width: 368px){
 
-    .ps-innerblocks-wrap{
+    .overlapping-imgs-innerblocks-wrap{
       grid-column: 1 / 19;
     }
 
-    .ps-image-one-wrap{
+    .overlapping-imgs-image-one-wrap{
       grid-column: 1 / 11;
     }
 
-    .ps-image-two-wrap{
+    .overlapping-imgs-image-two-wrap{
       grid-column: 7 / 19;
     }
 

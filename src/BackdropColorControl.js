@@ -6,8 +6,8 @@ export default ({renderContent}) => {
   return (
     <Dropdown 
     popoverProps={{
-      className: 'ps-collage-bg-color-control',
-      headerTitle: __('Backdrop Color', 'ps-collage'),
+      className: 'overlapping-imgs-collage-bg-color-control',
+      headerTitle: __('Backdrop Color', 'overlapping-images'),
       variant: 'toolbar',
       placement: 'bottom-start'
     }}
@@ -16,9 +16,9 @@ export default ({renderContent}) => {
       return (
         <ToolbarButton 
         icon={brush}
-        subscript={__('Backdrop Color','ps-collage')}
-        describedBy={__('Choose backdrop color', 'ps-collage')}
-        label={__('Backdrop Color', 'ps-collage')}
+        subscript={__('Backdrop Color','overlapping-images')}
+        describedBy={__('Choose backdrop color', 'overlapping-images')}
+        label={__('Backdrop Color', 'overlapping-images')}
         showTooltip={true}
         onClick={onToggle}
         />
