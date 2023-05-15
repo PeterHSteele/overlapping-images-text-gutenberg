@@ -157,7 +157,6 @@ export default function Edit({ attributes, setAttributes }) {
       <SelectWrap 
       className={`ps-innerblocks-wrap ${ 3 == selectedEl ? 'el-selected' : ''}`}
       handleClick={handleSelectEl(3)}
-      ariaPressed={3==selectedEl}
       >
         <InnerBlocks />
       </SelectWrap>

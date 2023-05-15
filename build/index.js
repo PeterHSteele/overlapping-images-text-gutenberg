@@ -354,8 +354,7 @@ function Edit(_ref) {
     onError: onUploadError("Second")
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_SelectWrap__WEBPACK_IMPORTED_MODULE_5__["default"], {
     className: `ps-innerblocks-wrap ${3 == selectedEl ? 'el-selected' : ''}`,
-    handleClick: handleSelectEl(3),
-    ariaPressed: 3 == selectedEl
+    handleClick: handleSelectEl(3)
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, null)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Panel, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Layouts', 'overlapping-images'),
     opened: true
