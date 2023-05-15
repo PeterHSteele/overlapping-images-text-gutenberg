@@ -12,7 +12,7 @@
     "color": {
       "background": true
     },
-    "align": ["full"]
+    "align": ["full", "wide"]
 	},
   "attributes": {
     "heading": {
