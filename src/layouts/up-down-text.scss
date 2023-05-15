@@ -1,82 +1,85 @@
-@import './layout-mixins';
-
 .wp-block-overlapping-images-block-overlapping-images.layout-up-down-text{
   
   .ps-innerblocks-wrap{
-    @include right-large;
+    grid-column: 11 / 17;
+    grid-row: 4 / 10;
   }
   
   .ps-image-one-wrap{
-    @include left-large;
-    @include top-leftright-large;
+    grid-column: 3 / 9;
+    grid-row: 1 / 11;
   }
   
   .ps-image-two-wrap{
-    @include bottom-center-large;
+    grid-row: 2 / 13;
+    grid-column: 7 / 13
   }
   
   
-  @media (max-width: 1490px){
+  @container (max-width: 1490px){
     .ps-image-one-wrap{
-      @include medium-left;
+      grid-column: 2 / 9;
     }
   
     .ps-innerblocks-wrap{
-      @include medium-right;
+      grid-column: 11 / 18
     }
   }
 
-}
-
-@media (max-width: 1070px){
-  .wp-block-overlapping-images-block-overlapping-images.layout-up-down-text{
+  @container (max-width: 1070px){
     .ps-innerblocks-wrap{
       grid-row-end: 12;
     }
   }
-}
 
 
-@media (max-width: 768px){
-  .wp-block-overlapping-images-block-overlapping-images.layout-up-down-text{
+  @container (max-width: 768px){
+
+    .ps-innerblocks-wrap{
+      grid-column: 5 / 15;
+      grid-row: 6 / 11;
+    }
 
     .ps-image-one-wrap{
-      @include small-image-left;
-      @include small-image-up;
+      grid-column: 2 / 11;
+      grid-row: 1 / 7;
     }
     
     .ps-image-two-wrap{
-      @include small-image-right;
-      @include small-image-down;
+      grid-column: 9 / 18;
+      grid-row: 3 / 9;
     }
+
   }
-}
 
-@media (max-width: 650px){
-  .wp-block-overlapping-images-block-overlapping-images.layout-up-down-text{
-    
+  @container (max-width: 650px){
+      
     .ps-image-one-wrap{
-      @include vsmall-left;
+      grid-column: 3 / 11;
+      
     }
 
     .ps-image-two-wrap{
-      @include vsmall-right;
+      grid-column: 9 / 17;
     }
+
   }
-}
 
-@media (max-width: 500px){
-  .wp-block-overlapping-images-block-overlapping-images.layout-up-down-text{
-    
+  @container (max-width: 500px){
+    .ps-innerblocks-wrap{
+      grid-column: 4 / 16;
+    }
+
     .ps-image-one-wrap{
-      @include tiny-left;
-      @include tiny-up
+      grid-column: 4 / 12;
+      grid-row: 1 / 7;
     }
 
     .ps-image-two-wrap{
-      @include tiny-right;
-      @include tiny-down;
+      grid-column: 8 / 16;
+      grid-row: 2 / 8;
     }
+
   }
 
 }
