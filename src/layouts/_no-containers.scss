@@ -1,0 +1,67 @@
+@use './layout-mixins' as mixins;
+
+@mixin layout{
+  
+  .wp-block-overlapping-images-block-overlapping-images{
+
+    .overlapping-imgs-image-one-wrap{
+      grid-column: 2 / 9;
+      grid-row: 3 / 13;
+    }
+  
+    .overlapping-imgs-image-two-wrap{
+      grid-column: 6 / 13;
+      grid-row: 1 / 12;
+    }
+  
+    .overlapping-imgs-innerblocks-wrap{
+      grid-column: 11 / 18;
+      grid-row: 4 / 11;
+    }
+
+    @include mixins.query( media, 768){
+      @include mixins.medium-down-up-text;
+    }
+    
+    @include mixins.query(media, 650){
+      @include mixins.medium-small-down-up-text;
+    } 
+
+    @include mixins.query(media, 584){
+      @include mixins.small-down-up-text;
+    }
+
+    @include mixins.query(media, 488){
+      @include mixins.very-small-down-up-text;
+    }
+
+    @include mixins.query(media, 368){
+      @include mixins.tiny-down-up-text;
+    }
+  }
+
+}
+
+@mixin styles{
+  @include mixins.query(media, 1070){
+    .overlapping-imgs-innerblocks-wrap{
+      padding: 16px;
+    }
+  }
+
+  @include mixins.query(media, 768){
+    .wp-block-overlapping-images-block-overlapping-images .overlapping-imgs-innerblocks-wrap{
+      z-index: 1;
+    }
+  
+    .wp-block-overlapping-images-block-overlapping-images .overlapping-imgs-image-one-wrap{
+      z-index: 0;
+    }
+  } 
+
+  @include mixins.query( media, 650){
+    .wp-block-overlapping-images-block-overlapping-images .overlapping-imgs-innerblocks-wrap{
+      grid-column: 4 / 16;
+    }
+  }
+}

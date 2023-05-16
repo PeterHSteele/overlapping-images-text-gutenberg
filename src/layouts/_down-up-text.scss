@@ -1,0 +1,61 @@
+@use './layout-mixins' as mixins;
+
+.wp-block-overlapping-images-block-overlapping-images.layout-down-up-text{
+  
+  .overlapping-imgs-innerblocks-wrap{
+    grid-column: 11 / 17;
+    grid-row: 4 / 10;
+  }
+  
+  .overlapping-imgs-image-one-wrap{
+    grid-column: 3 / 9;
+    grid-row: 3 / 13;
+  }
+  
+  .overlapping-imgs-image-two-wrap{
+    grid-row: 1 / 12;
+    grid-column: 7 / 13;
+  }
+  
+
+@container (max-width: 1368px){
+  .overlapping-imgs-image-one-wrap{
+    grid-column: 2 / 9;
+  }
+
+  .overlapping-imgs-image-two-wrap{
+    grid-column: 6 / 13;
+  }
+
+  .overlapping-imgs-innerblocks-wrap{
+    grid-column: 11 / 18;
+  }
+}
+
+@container (max-width: 1070px){
+  .overlapping-imgs-innerblocks-wrap{
+    grid-row: 4 / 11;
+  }
+}
+
+@include mixins.query(container, 768){
+  @include mixins.medium-down-up-text;
+}
+
+@include mixins.query(container, 650){
+  @include mixins.medium-small-down-up-text;
+}
+
+@include mixins.query(container, 584){
+  @include mixins.small-down-up-text;
+}
+
+@include mixins.query( container, 488){
+  @include mixins.very-small-down-up-text;
+}
+
+@include mixins.query( container, 368){
+  @include mixins.tiny-down-up-text;
+}
+
+}

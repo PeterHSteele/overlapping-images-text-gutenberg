@@ -5,21 +5,26 @@
  * Replace them with your own styles or remove the file completely.
  */
 
- @import './layouts/down-up-text.scss';
- @import './layouts/up-down-text.scss';
- @import './layouts/text-up-down.scss';
- @import './layouts/text-down-up.scss';
- 
+ @use './layouts/_down-up-text.scss';
+ @use './layouts/_up-down-text.scss';
+ @use './layouts/_text-up-down.scss';
+ @use './layouts/_text-down-up.scss';
+ @use './layouts/_no-containers.scss';
+
+@supports not ( container-type: inline-size ){
+  @include no-containers.layout;
+  @include no-containers.styles;
+}
+
 .wp-block-overlapping-images-block-overlapping-images {
+  display: grid;
+  container-type: inline-size;
 	color: #000;
 	padding: 2px;
-  display: grid;
   grid-template-columns: repeat( 18, 1fr );
   grid-template-rows: repeat( 12, 1fr);
-  /*grid-template-rows: repeat( 3, 8.3333% ) repeat(8, 1fr) 8.33%;*/
   min-height: 480px;
   max-height: 660px;
-  container-type: inline-size;
 
   img.overlapping-imgs-image-one,
   img.overlapping-imgs-image-two{
