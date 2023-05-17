@@ -50,11 +50,11 @@
   @include mixins.small-down-up-text;
 }
 
-@include mixins.query( container, 488){
+@include mixins.query(container, 488){
   @include mixins.very-small-down-up-text;
 }
 
-@include mixins.query( container, 368){
+@include mixins.query(container, 368){
   @include mixins.tiny-down-up-text;
 }
 

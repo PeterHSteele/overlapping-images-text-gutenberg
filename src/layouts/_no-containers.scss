@@ -2,7 +2,10 @@
 
 @mixin layout{
   
-  .wp-block-overlapping-images-block-overlapping-images{
+  .wp-block-overlapping-images-block-overlapping-images.layout-text-down-up,
+  .wp-block-overlapping-images-block-overlapping-images.layout-text-up-down,
+  .wp-block-overlapping-images-block-overlapping-images.layout-up-down-text,
+  .wp-block-overlapping-images-block-overlapping-images.layout-down-up-text{
 
     .overlapping-imgs-image-one-wrap{
       grid-column: 2 / 9;

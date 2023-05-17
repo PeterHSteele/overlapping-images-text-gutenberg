@@ -92,7 +92,7 @@ export default function Edit({ attributes, setAttributes }) {
   )
 
   const renderDropdownContent = pickerVisible => pickerVisible ? bgPicker() : null
-  const { layout, backdropColor, altFirst, urlFirst, idFirst } = attributes
+  const { layout, backdropColor, altFirst, urlFirst } = attributes
 
 	return (
 		<div { ...useBlockProps({ className: 'layout-' + layout }) }>

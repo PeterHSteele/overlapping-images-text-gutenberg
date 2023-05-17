@@ -17,7 +17,7 @@
 }
 
 .wp-block-overlapping-images-block-overlapping-images {
-  display: grid;
+  display: grid !important;
   container-type: inline-size;
 	color: #000;
 	padding: 2px;

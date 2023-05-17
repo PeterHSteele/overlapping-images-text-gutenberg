@@ -6,19 +6,6 @@
  */
 import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 
-/*
-
-        <RichText.Content tag="p" value={text} />
-        <a href={callToActionLink}>{callToActionText}</a>
-*/
-
-/*
- <RichText.Content
-        tagName="h2"
-        value={ heading }
-        />
-*/
-
 /**
  * The save function defines the way in which the different attributes should
  * be combined into the final markup, which is then serialized by the block

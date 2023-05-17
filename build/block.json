@@ -49,10 +49,6 @@
       "source": "attribute",
       "attribute": "src"
     },
-    "idFirst": {
-      "type": "number",
-      "default": 0
-    },
     "altFirst": {
       "type": "string",
       "src": "attribute",
@@ -65,10 +61,6 @@
       "selector": "img.overlapping-imgs-image-two",
       "source": "attribute",
       "attribute": "src"
-    },
-    "idSecond": {
-      "type": "number",
-      "default": 0
     },
     "backdropColor": {
       "type": "string",
