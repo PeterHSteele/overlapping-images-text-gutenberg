@@ -5,146 +5,83 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-create-block-ps-collage {
+ @use './layouts/_down-up-text.scss';
+ @use './layouts/_up-down-text.scss';
+ @use './layouts/_text-up-down.scss';
+ @use './layouts/_text-down-up.scss';
+ @use './layouts/_no-containers.scss';
+
+@supports not ( container-type: inline-size ){
+  @include no-containers.layout;
+  @include no-containers.styles;
+}
+
+.wp-block-overlapping-images-block-overlapping-images {
+  display: grid !important;
+  container-type: inline-size;
 	color: #000;
-	padding: 2px;
-  display: grid;
   grid-template-columns: repeat( 18, 1fr );
   grid-template-rows: repeat( 12, 1fr);
-  /*grid-template-rows: repeat( 3, 8.3333% ) repeat(8, 1fr) 8.33%;*/
   min-height: 480px;
   max-height: 660px;
 
-  img{
+  img.overlapping-imgs-image-one,
+  img.overlapping-imgs-image-two{
     height: 100%;
     width: 100%;
     object-fit: cover;
     box-sizing: border-box;
   }
 
-  .ps-innerblocks-wrap{
-    grid-column: 11 / 17;
-    grid-row: 4 / 10;
-    background: #fff;
-    padding: 32px;
-  }
-  /*
-  .ps-text-wrap{
-    
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-  
-    a{
-      background: #000;
-      color: #fff;
-      padding: 8px 18px;
-      display: inline-block;
-      text-decoration: none;
-    }
-  }
-  */
-
-  .ps-backdrop{
+  .overlapping-imgs-backdrop{
     grid-row: 2 / 12;
     grid-column: 1 / 19;
   }
-  
-  .ps-image-one-wrap{
-    grid-column: 3 / 9;
-    grid-row: 3 / 13;
-    z-index: 1;
-  }
-  
-  .ps-image-one-wrap img{
+
+  .overlapping-imgs-image-one-wrap img{
     border: 16px solid #fff;
   }
-  
-  .ps-image-two-wrap{
-    grid-row: 1 / 12;
-    grid-column: 7 / 13;
-  }
-  
-  
-  @media (max-width: 1490px){
-    .ps-image-one-wrap{
-      grid-column: 2 / 9;
-    }
-    
-    .ps-image-two-wrap{
-      grid-column: 6 / 13;
-    }
-  
-    .ps-innerblocks-wrap{
-      grid-column: 11 / 18;
-    }
+
+  .overlapping-imgs-innerblocks-wrap{
+    background: #fff;
+    padding: 32px;
   }
 
-}
+  .overlapping-imgs-image-one-wrap{
+    z-index: 1;
+  }
 
-@media (max-width: 1070px){
-  .wp-block-create-block-ps-collage{
+  @container (max-width: 1070px){
 
-    .ps-innerblocks-wrap{
-      grid-row-start: 2;
+    .overlapping-imgs-innerblocks-wrap{
       padding: 16px;
     }
   }
-}
 
-
-@media (max-width: 768px){
-  .wp-block-create-block-ps-collage{
-    min-height: unset;
-    max-height: 708px;
-
-    .ps-innerblocks-wrap{
-      grid-row: 6 / 11;
-      /*grid-row-start: 6;*/
-      grid-column: 5 / 15;
+  @container (max-width: 768px){
+  
+    .overlapping-imgs-innerblocks-wrap{
       z-index: 1;
     }
-
-    .ps-image-one-wrap{
-      grid-column: 2 / 11;
-      grid-row: 3 / 9;
+  
+    .overlapping-imgs-image-one-wrap{
       z-index: 0;
     }
-    
-    .ps-image-two-wrap{
-      grid-column: 9 / 18;
-      grid-row: 1 / 7;
-    }
   }
+  
+  @container (max-width: 650px){
+  
+      .overlapping-imgs-innerblocks-wrap{
+        grid-column: 4 / 16;
+      }
+  
+  }
+
 }
 
-@media (max-width: 650px){
-  .wp-block-create-block-ps-collage{
-    
-    .ps-image-one-wrap{
-      grid-column: 2 / 11;
-    }
-
-    .ps-image-two-wrap{
-      grid-column: 9 / 18;
-    }
-  }
-}
-
-@media (max-width: 500px){
-  .wp-block-create-block-ps-collage{
-
-    .ps-innerblocks-wrap{
-      grid-column: 4 / 16;
-    }
-    
-    .ps-image-one-wrap{
-      grid-row: 2 / 8 ;
-      grid-column: 4 / 12;
-    }
-
-    .ps-image-two-wrap{
-      grid-column: 8 / 16;
-    }
+@media (max-width: 768px){
+  .wp-block-overlapping-images-block-overlapping-images{
+    min-height: unset;
+    max-height: 708px;
   }
 }

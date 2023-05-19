@@ -6,14 +6,14 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
-.wp-block-create-block-ps-collage .block-editor-media-placeholder {
+.wp-block-overlapping-images-block-overlapping-images .block-editor-media-placeholder {
   width: 100%;
   height: 100%;
 }
 
-.ps-image-one-wrap,
-.ps-image-two-wrap,
-.ps-innerblocks-wrap {
+.overlapping-imgs-image-one-wrap,
+.overlapping-imgs-image-two-wrap,
+.overlapping-imgs-innerblocks-wrap {
   background: none;
   color: inherit;
   border: none;
@@ -22,34 +22,65 @@
   cursor: pointer;
   outline: inherit;
   border: 2px solid transparent;
+  margin: -2px;
 }
 
-.wp-block-create-block-ps-collage .block-editor-rich-text__editable {
+.overlapping-imgs-backdrop {
+  /*margin: -2px;*/
+}
+
+.wp-block-overlapping-images-block-overlapping-images .block-editor-rich-text__editable {
   border: 1px solid transparent;
   padding: 0 2px;
 }
 
-.wp-block-create-block-ps-collage .block-editor-rich-text__editable:focus {
+.wp-block-overlapping-images-block-overlapping-images .block-editor-rich-text__editable:focus {
   border: 1px dotted #333;
 }
 
-.ps-image-one-wrap:not(.el-selected):hover,
-.ps-image-two-wrap:not(.el-selected):hover {
-  border: 2px solid #6af;
+.wp-block-overlapping-images-block-overlapping-images.is-selected .overlapping-imgs-image-one-wrap:not(.el-selected):hover,
+.wp-block-overlapping-images-block-overlapping-images.is-selected .overlapping-imgs-image-two-wrap:not(.el-selected):hover,
+.wp-block-overlapping-images-block-overlapping-images.is-selected .overlapping-imgs-innerblocks-wrap:hover {
+  border: 2px solid rgb(0, 124, 186);
 }
 
-.el-selected {
-  border: 2px solid #6af;
+.wp-block-overlapping-images-block-overlapping-images.is-selected .el-selected {
+  border: 2px solid rgb(0, 124, 186);
   z-index: 2;
 }
 
-/*
-.wp-block-create-block-ps-collage .ps-text-wrap div .block-editor-rich-text__editable{
-  display: inline-block;
-  background: #000;
-  color: #fff;
-  padding: 8px 18px;
+.components-button.overlapping-imgs-layout-button {
+  height: auto;
 }
-*/
+
+.oi-icon-textwrap {
+  fill: #fff;
+}
+
+.oi-icon-text {
+  fill: #e2e2f2;
+}
+
+.oi-icon-img-one {
+  fill: #bcbccc;
+}
+
+.oi-icon-img-two {
+  fill: #898999;
+}
+
+.oi-icon-text-border {
+  fill: #565666;
+}
+
+.current-layout .oi-icon-img-two {
+  fill: #89a9d9;
+}
+.current-layout .oi-icon-img-one {
+  fill: #c0e0ff;
+}
+.current-layout .oi-icon-text {
+  fill: #ddf;
+}
 
 /*# sourceMappingURL=index.css.map*/

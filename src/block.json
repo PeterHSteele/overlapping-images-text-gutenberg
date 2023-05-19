@@ -1,9 +1,9 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
-	"name": "create-block/ps-collage",
+	"name": "overlapping-images-block/overlapping-images",
 	"version": "0.1.0",
-	"title": "Ps Collage",
+	"title": "Overlapping Images",
 	"category": "common",
 	"icon": "images-alt",
 	"description": "Overlapping text and image block.",
@@ -12,67 +12,27 @@
     "color": {
       "background": true
     },
-    "align": ["full"]
+    "align": ["full", "wide"]
 	},
   "attributes": {
-    "heading": {
-      "type": "string",
-      "source": "html",
-      "selector": "h2",
-      "default": ""
-    },
-    "text": {
-      "type": "string",
-      "source": "html",
-      "selector": "p",
-      "default": ""
-    },
-    "callToActionText":{
-      "type": "string",
-      "source": "html",
-      "selector": "a",
-      "default": ""
-    },
-    "callToActionLink":{
-      "type": "string",
-      "source": "attribute",
-      "attribute": "href",
-      "selector": "a",
-      "default": ""
-    },
     "urlFirst": {
       "type": "string",
-      "selector": "img.pscollage-image-one",
+      "selector": "img.overlapping-imgs-image-one",
       "source": "attribute",
       "attribute": "src"
-    },
-    "idFirst": {
-      "type": "number",
-      "default": 0
     },
     "altFirst":{
       "type": "string",
       "src": "attribute",
       "attribute": "alt",
-      "selector": "img.pscollage-image-one",
+      "selector": "img.overlapping-imgs-image-one",
       "default": ""
     },
     "urlSecond": {
       "type": "string",
-      "selector": "img.pscollage-image-two",
+      "selector": "img.overlapping-imgs-image-two",
       "source": "attribute",
       "attribute": "src"
-    },
-    "idSecond": {
-      "type": "number",
-      "default": 0
-    },
-    "altSecond":{
-      "type": "string",
-      "src": "attribute",
-      "attribute": "alt",
-      "selector": "img.pscollage-image-two",
-      "default": ""
     },
     "backdropColor": {
       "type": "string",
@@ -81,9 +41,13 @@
     "align": {
       "type": "string",
       "default": "full"
+    },
+    "layout": {
+      "type": "string",
+      "default": "down-up-text"
     }
   },
-	"textdomain": "ps-collage",
+	"textdomain": "overlapping-images",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css"

@@ -82,8 +82,8 @@ __webpack_require__.r(__webpack_exports__);
   } = _ref;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Dropdown, {
     popoverProps: {
-      className: 'ps-collage-bg-color-control',
-      headerTitle: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Backdrop Color', 'ps-collage'),
+      className: 'overlapping-imgs-collage-bg-color-control',
+      headerTitle: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Backdrop Color', 'overlapping-images'),
       variant: 'toolbar',
       placement: 'bottom-start'
     },
@@ -95,9 +95,9 @@ __webpack_require__.r(__webpack_exports__);
       } = _ref2;
       return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ToolbarButton, {
         icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_3__["default"],
-        subscript: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Backdrop Color', 'ps-collage'),
-        describedBy: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Choose backdrop color', 'ps-collage'),
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Backdrop Color', 'ps-collage'),
+        subscript: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Backdrop Color', 'overlapping-images'),
+        describedBy: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Choose backdrop color', 'overlapping-images'),
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Backdrop Color', 'overlapping-images'),
         showTooltip: true,
         onClick: onToggle
       });
@@ -116,26 +116,18 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-
 
 const SelectWrap = _ref => {
   let {
     children,
     className,
-    ariaPressed,
     handleClick,
-    ariaLabel,
     style = {}
   } = _ref;
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
-    type: "button",
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: className,
     onClick: handleClick,
-    style: style,
-    "aria-pressed": ariaPressed,
-    "aria-label": ariaLabel
+    style: style
   }, children);
 };
 /* harmony default export */ __webpack_exports__["default"] = (SelectWrap);
@@ -505,19 +497,6 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 
-/*
-
-        <RichText.Content tag="p" value={text} />
-        <a href={callToActionLink}>{callToActionText}</a>
-*/
-
-/*
- <RichText.Content
-        tagName="h2"
-        value={ heading }
-        />
-*/
-
 /**
  * The save function defines the way in which the different attributes should
  * be combined into the final markup, which is then serialized by the block
@@ -532,37 +511,35 @@ function save(_ref) {
   let {
     attributes
   } = _ref;
-  const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save();
+  const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save({
+    className: 'layout-' + attributes.layout
+  });
   const {
-    heading,
-    text,
-    callToActionLink,
-    callToActionText,
     urlFirst,
     altFirst,
     urlSecond,
-    altSecond,
     backdropColor
   } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "ps-backdrop",
+    className: "overlapping-imgs-backdrop",
     style: {
       background: backdropColor
     }
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "ps-image-one-wrap"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-    class: "pscollage-image-one",
+    className: "overlapping-imgs-image-one-wrap"
+  }, urlFirst && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+    class: "overlapping-imgs-image-one",
     src: urlFirst,
     alt: altFirst
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "ps-image-two-wrap"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-    class: "pscollage-image-two",
+    className: "overlapping-imgs-image-two-wrap"
+  }, urlSecond && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+    class: "overlapping-imgs-image-two",
     src: urlSecond,
-    alt: altSecond
+    alt: "",
+    role: "presentation"
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "ps-innerblocks-wrap"
+    className: "overlapping-imgs-innerblocks-wrap"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks.Content, null)));
 }
 

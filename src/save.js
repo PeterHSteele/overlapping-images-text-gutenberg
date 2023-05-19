@@ -4,20 +4,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps, RichText, InnerBlocks } from '@wordpress/block-editor';
-
-/*
-
-        <RichText.Content tag="p" value={text} />
-        <a href={callToActionLink}>{callToActionText}</a>
-*/
-
-/*
- <RichText.Content
-        tagName="h2"
-        value={ heading }
-        />
-*/
+import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -30,18 +17,18 @@ import { useBlockProps, RichText, InnerBlocks } from '@wordpress/block-editor';
  */
 
 export default function save({ attributes }) {
-  const blockProps = useBlockProps.save();
-  const { heading, text, callToActionLink, callToActionText, urlFirst, altFirst, urlSecond, altSecond, backdropColor } = attributes
+  const blockProps = useBlockProps.save({className: 'layout-' + attributes.layout});
+  const { urlFirst, altFirst, urlSecond, backdropColor } = attributes
 	return (
     <div { ...blockProps }>
-      <div className='ps-backdrop' style={{background: backdropColor}}></div>
-      <div className="ps-image-one-wrap">
-        <img class="pscollage-image-one" src={urlFirst} alt={altFirst} />
+      <div className='overlapping-imgs-backdrop' style={{background: backdropColor}}></div>
+      <div className="overlapping-imgs-image-one-wrap">
+        { urlFirst && <img class="overlapping-imgs-image-one" src={urlFirst} alt={altFirst} /> }
       </div>
-      <div className="ps-image-two-wrap">
-        <img class="pscollage-image-two" src={urlSecond} alt={altSecond} />
+      <div className="overlapping-imgs-image-two-wrap">
+        { urlSecond && <img class="overlapping-imgs-image-two" src={urlSecond} alt='' role='presentation' /> }
       </div>
-      <div className="ps-innerblocks-wrap">
+      <div className="overlapping-imgs-innerblocks-wrap">
         <InnerBlocks.Content />
       </div>
     </div>
