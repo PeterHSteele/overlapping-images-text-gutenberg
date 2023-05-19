@@ -18,15 +18,15 @@ import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 
 export default function save({ attributes }) {
   const blockProps = useBlockProps.save({className: 'layout-' + attributes.layout});
-  const { heading, text, callToActionLink, callToActionText, urlFirst, altFirst, urlSecond, altSecond, backdropColor } = attributes
+  const { urlFirst, altFirst, urlSecond, backdropColor } = attributes
 	return (
     <div { ...blockProps }>
       <div className='overlapping-imgs-backdrop' style={{background: backdropColor}}></div>
       <div className="overlapping-imgs-image-one-wrap">
-        <img class="overlapping-imgs-image-one" src={urlFirst} alt={altFirst} />
+        { urlFirst && <img class="overlapping-imgs-image-one" src={urlFirst} alt={altFirst} /> }
       </div>
       <div className="overlapping-imgs-image-two-wrap">
-        <img class="overlapping-imgs-image-two" src={urlSecond} alt='' role='presentation' />
+        { urlSecond && <img class="overlapping-imgs-image-two" src={urlSecond} alt='' role='presentation' /> }
       </div>
       <div className="overlapping-imgs-innerblocks-wrap">
         <InnerBlocks.Content />

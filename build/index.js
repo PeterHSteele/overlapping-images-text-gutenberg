@@ -690,14 +690,9 @@ function save(_ref) {
     className: 'layout-' + attributes.layout
   });
   const {
-    heading,
-    text,
-    callToActionLink,
-    callToActionText,
     urlFirst,
     altFirst,
     urlSecond,
-    altSecond,
     backdropColor
   } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -707,13 +702,13 @@ function save(_ref) {
     }
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "overlapping-imgs-image-one-wrap"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+  }, urlFirst && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     class: "overlapping-imgs-image-one",
     src: urlFirst,
     alt: altFirst
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "overlapping-imgs-image-two-wrap"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+  }, urlSecond && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     class: "overlapping-imgs-image-two",
     src: urlSecond,
     alt: "",
@@ -855,7 +850,7 @@ module.exports = window["wp"]["primitives"];
   \************************/
 /***/ (function(module) {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"overlapping-images-block/overlapping-images","version":"0.1.0","title":"Overlapping Images","category":"common","icon":"images-alt","description":"Overlapping text and image block.","supports":{"html":false,"color":{"background":true},"align":["full","wide"]},"attributes":{"heading":{"type":"string","source":"html","selector":"h2","default":""},"text":{"type":"string","source":"html","selector":"p","default":""},"callToActionText":{"type":"string","source":"html","selector":"a","default":""},"callToActionLink":{"type":"string","source":"attribute","attribute":"href","selector":"a","default":""},"urlFirst":{"type":"string","selector":"img.overlapping-imgs-image-one","source":"attribute","attribute":"src"},"altFirst":{"type":"string","src":"attribute","attribute":"alt","selector":"img.overlapping-imgs-image-one","default":""},"urlSecond":{"type":"string","selector":"img.overlapping-imgs-image-two","source":"attribute","attribute":"src"},"backdropColor":{"type":"string","default":"#faf3f0"},"align":{"type":"string","default":"full"},"layout":{"type":"string","default":"down-up-text"}},"textdomain":"overlapping-images","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"overlapping-images-block/overlapping-images","version":"0.1.0","title":"Overlapping Images","category":"common","icon":"images-alt","description":"Overlapping text and image block.","supports":{"html":false,"color":{"background":true},"align":["full","wide"]},"attributes":{"urlFirst":{"type":"string","selector":"img.overlapping-imgs-image-one","source":"attribute","attribute":"src"},"altFirst":{"type":"string","src":"attribute","attribute":"alt","selector":"img.overlapping-imgs-image-one","default":""},"urlSecond":{"type":"string","selector":"img.overlapping-imgs-image-two","source":"attribute","attribute":"src"},"backdropColor":{"type":"string","default":"#faf3f0"},"align":{"type":"string","default":"full"},"layout":{"type":"string","default":"down-up-text"}},"textdomain":"overlapping-images","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

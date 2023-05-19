@@ -15,31 +15,6 @@
     "align": ["full", "wide"]
 	},
   "attributes": {
-    "heading": {
-      "type": "string",
-      "source": "html",
-      "selector": "h2",
-      "default": ""
-    },
-    "text": {
-      "type": "string",
-      "source": "html",
-      "selector": "p",
-      "default": ""
-    },
-    "callToActionText":{
-      "type": "string",
-      "source": "html",
-      "selector": "a",
-      "default": ""
-    },
-    "callToActionLink":{
-      "type": "string",
-      "source": "attribute",
-      "attribute": "href",
-      "selector": "a",
-      "default": ""
-    },
     "urlFirst": {
       "type": "string",
       "selector": "img.overlapping-imgs-image-one",

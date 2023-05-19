@@ -39,15 +39,15 @@
   border: 1px dotted #333;
 }
 
-.overlapping-imgs-image-one-wrap:not(.el-selected),
-.overlapping-imgs-image-two-wrap:not(.el-selected),
-.overlapping-imgs-innerblocks-wrap{
+.wp-block-overlapping-images-block-overlapping-images.is-selected .overlapping-imgs-image-one-wrap:not(.el-selected),
+.wp-block-overlapping-images-block-overlapping-images.is-selected .overlapping-imgs-image-two-wrap:not(.el-selected),
+.wp-block-overlapping-images-block-overlapping-images.is-selected .overlapping-imgs-innerblocks-wrap{
   &:hover{
     border: 2px solid rgb(0, 124, 186);
   }
 }
 
-.el-selected{
+.wp-block-overlapping-images-block-overlapping-images.is-selected .el-selected{
   border: 2px solid rgb(0, 124, 186);
   z-index: 2
 }
