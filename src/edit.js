@@ -43,7 +43,6 @@ import { isBlobURL } from '@wordpress/blob';
 import { layoutButtonData } from './constants';
 
 export default function Edit({ attributes, setAttributes }) {
-
   let [ selectedEl, setSelectedEl ] = useState(1)
   let [ picker, setPicker ] = useState(false)
   let [ anchor, setAnchor] = useState()
@@ -157,13 +156,14 @@ export default function Edit({ attributes, setAttributes }) {
             <Grid
             columns={2}
             rows={2}>
-            {layoutButtonData.map((layout, i) =>  (
+            {layoutButtonData.map((layoutButton) => (
               <Button
               variant="secondary"
-              label={layout.label}
-              onClick={()=>setAttributes({layout: layout.name})}
+              label={layoutButton.label}
+              className={`overlapping-imgs-layout-button ${layoutButton.name == layout? 'current-layout' : ''}`}
+              onClick={()=>setAttributes({layout: layoutButton.name})}
               >
-                {'Layout '+i}
+                {layoutButton.icon}
               </Button>
             ))}
             </Grid>

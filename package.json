@@ -21,7 +21,6 @@
 		"@wordpress/blob": "^3.31.0",
 		"@wordpress/data": "^9.1.0",
 		"@wordpress/icons": "^9.22.0",
-		"@wordpress/notices": "^3.31.0",
-		"@wordpress/url": "^3.33.0"
+		"@wordpress/notices": "^3.31.0"
 	}
 }

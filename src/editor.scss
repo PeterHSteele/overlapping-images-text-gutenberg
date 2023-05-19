@@ -27,7 +27,7 @@
 }
 
 .overlapping-imgs-backdrop{
-  margin: -2px;
+  /*margin: -2px;*/
 }
 
 .wp-block-overlapping-images-block-overlapping-images .block-editor-rich-text__editable{
@@ -43,11 +43,50 @@
 .overlapping-imgs-image-two-wrap:not(.el-selected),
 .overlapping-imgs-innerblocks-wrap{
   &:hover{
-    border: 2px solid #6af;
+    border: 2px solid rgb(0, 124, 186);
   }
 }
 
 .el-selected{
-  border: 2px solid #6af;
+  border: 2px solid rgb(0, 124, 186);
   z-index: 2
+}
+
+.components-button.overlapping-imgs-layout-button{
+  height: auto;
+}
+
+.oi-icon-textwrap {
+  fill: #fff;
+}
+
+.oi-icon-text {
+  fill: #e2e2f2;
+}
+
+.oi-icon-img-one {
+  fill: #bcbccc;
+}
+
+.oi-icon-img-two {
+  fill: #898999;
+}
+
+.oi-icon-text-border {
+  fill: #565666;
+} 
+
+.current-layout{
+  .oi-icon-img-two {
+    fill: #89a9d9;
+  }
+
+  .oi-icon-img-one {
+    fill: #c0e0ff;
+  }
+
+  .oi-icon-text {
+    fill: #ddf;
+  }
+
 }
