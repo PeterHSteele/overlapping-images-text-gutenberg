@@ -28,11 +28,23 @@
       "selector": "img.overlapping-imgs-image-one",
       "default": ""
     },
+    "srcsetFirst": {
+      "type": "string",
+      "selector": "img.overlapping-imgs-image-one",
+      "source": "attribute",
+      "attribute": "srcset"
+    },
     "urlSecond": {
       "type": "string",
       "selector": "img.overlapping-imgs-image-two",
       "source": "attribute",
       "attribute": "src"
+    },
+    "srcsetSecond": {
+      "type": "string",
+      "selector": "img.overlapping-imgs-image-two",
+      "source": "attribute",
+      "attribute": "srcset"
     },
     "backdropColor": {
       "type": "string",

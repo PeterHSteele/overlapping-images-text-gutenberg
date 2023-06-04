@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps, MediaPlaceholder, MediaReplaceFlow, InspectorControls, BlockControls, InnerBlocks } from '@wordpress/block-editor';
+import { useBlockProps, MediaPlaceholder, MediaReplaceFlow, InspectorControls, BlockControls, InnerBlocks, store as blockEditorStore } from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -38,15 +38,38 @@ import BackdropColorControl from './BackdropColorControl'
 import { useState } from 'react'
 import { image as icon } from '@wordpress/icons'
 import { store as noticesStore } from '@wordpress/notices';
-import { useDispatch } from '@wordpress/data'
+import { useSelect, useDispatch } from '@wordpress/data'
 import { isBlobURL } from '@wordpress/blob';
 import { layoutButtonData } from './constants';
+
+const genSrcset = media => {
+  let srcset = ''
+  if ( media.hasOwnProperty( 'sizes' )){
+    ['medium', 'large', 'full'].forEach( size => {
+      srcset += media.sizes[size]?.url + ' ' + media.sizes[size]?.width + 'w'
+      if ( 'full' != size ) srcset += ', '
+    })
+  } else {
+    [ 'medium', 'large', 'full' ].forEach( size => {
+      let sizeObj = media.media_details.sizes[size]
+      srcset += sizeObj.source_url + ' ' + sizeObj.width+'w'
+      if ( 'full' != size ) srcset += ', '
+    })
+    
+  }
+
+  if (!srcset){
+    console.log('srcset failed')
+  }
+
+  return srcset;
+}
 
 export default function Edit({ attributes, setAttributes }) {
   let [ selectedEl, setSelectedEl ] = useState(1)
   let [ picker, setPicker ] = useState(false)
   let [ anchor, setAnchor] = useState()
-
+ 
   const handleSelectEl = el => {
     return () => {
       return setSelectedEl( el )
@@ -55,12 +78,26 @@ export default function Edit({ attributes, setAttributes }) {
 
   const onSelect = whichImage => {
     return media => {
-      if (isBlobURL( media.url )) {
+      let attributes = {}
+
+      if ( isBlobURL( media.url ) ){
+        return
+      }
+      
+      if ( !media || !media.url || isBlobURL( media.url ) ) {
+        attributes['url' + whichImage] = '',
+        attributes['alt' + whichImage] =  '',
+        attributes['srcset' + whichImage] = '',
+        attributes['id' + whichImage] = ''
+
+        setAttributes( attributes )
         return;
       }
 
-      let attributes = {}
+      let srcset = genSrcset( media )
+
       attributes['url'+whichImage] = media.url
+      attributes['srcset'+whichImage] = srcset
       attributes['id'+whichImage] = media.id
       attributes['alt'+whichImage] = media.alt
   
@@ -77,7 +114,6 @@ export default function Edit({ attributes, setAttributes }) {
     }
     setAttributes(newAttributes)
   }
-  
 
   const togglePicker = () => setPicker(!picker)
 
