@@ -18,8 +18,6 @@
     grid-column: 7 / 13;
   }
 
-@debug $large;
-
 @container (max-width: #{$large} ){
   .overlapping-imgs-image-one-wrap{
     grid-column: 2 / 9;
@@ -49,10 +47,6 @@
 }
 
 @include mixins.query(container, $mobile){
-  @include mixins.small-down-up-text;
-}
-
-@include mixins.query(container, $sm-mobile){
   @include mixins.very-small-down-up-text;
 }
 

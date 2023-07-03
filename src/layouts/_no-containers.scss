@@ -27,10 +27,6 @@
     }
     
     @include mixins.query(media, 650){
-      @include mixins.medium-small-down-up-text;
-    } 
-
-    @include mixins.query(media, 584){
       @include mixins.small-down-up-text;
     }
 
