@@ -1,4 +1,5 @@
 @use './layout-mixins' as mixins;
+@use 'variables' as *;
 
 .wp-block-overlapping-images-block-overlapping-images.layout-down-up-text{
   
@@ -16,9 +17,10 @@
     grid-row: 1 / 12;
     grid-column: 7 / 13;
   }
-  
 
-@container (max-width: 1368px){
+@debug $large;
+
+@container (max-width: #{$large} ){
   .overlapping-imgs-image-one-wrap{
     grid-column: 2 / 9;
   }
@@ -32,29 +34,29 @@
   }
 }
 
-@container (max-width: 1070px){
+@container (max-width: #{$medium} ){
   .overlapping-imgs-innerblocks-wrap{
     grid-row: 4 / 11;
   }
 }
 
-@include mixins.query(container, 768){
+@include mixins.query(container, $tablet){
   @include mixins.medium-down-up-text;
 }
 
-@include mixins.query(container, 650){
-  @include mixins.medium-small-down-up-text;
-}
-
-@include mixins.query(container, 584){
+@include mixins.query(container, $lg-mobile){
   @include mixins.small-down-up-text;
 }
 
-@include mixins.query(container, 488){
+@include mixins.query(container, $mobile){
+  @include mixins.small-down-up-text;
+}
+
+@include mixins.query(container, $sm-mobile){
   @include mixins.very-small-down-up-text;
 }
 
-@include mixins.query(container, 368){
+@include mixins.query(container, $small){
   @include mixins.tiny-down-up-text;
 }
 

@@ -1,10 +1,10 @@
 @mixin query( $type, $breakpoint ){
   @if $type == container {
-    @container (max-width: #{$breakpoint}px ){
+    @container (max-width: #{$breakpoint} ){
       @content;
     }
   } @else {
-    @media (max-width: #{$breakpoint}px ){
+    @media (max-width: #{$breakpoint} ){
       @content;
     }
   }

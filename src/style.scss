@@ -10,6 +10,7 @@
  @use './layouts/_text-up-down.scss';
  @use './layouts/_text-down-up.scss';
  @use './layouts/_no-containers.scss';
+ @use './layouts/_variables.scss' as *;
 
 @supports not ( container-type: inline-size ){
   @include no-containers.layout;
@@ -51,14 +52,14 @@
     z-index: 1;
   }
 
-  @container (max-width: 1070px){
+  @container (max-width: #{$medium} ){
 
     .overlapping-imgs-innerblocks-wrap{
       padding: 16px;
     }
   }
 
-  @container (max-width: 768px){
+  @container (max-width: #{$tablet} ){
   
     .overlapping-imgs-innerblocks-wrap{
       z-index: 1;
@@ -69,7 +70,7 @@
     }
   }
   
-  @container (max-width: 650px){
+  @container (max-width: #{$lg-mobile}){
   
       .overlapping-imgs-innerblocks-wrap{
         grid-column: 4 / 16;
@@ -79,7 +80,7 @@
 
 }
 
-@media (max-width: 768px){
+@media (max-width: #{$tablet}){
   .wp-block-overlapping-images-block-overlapping-images{
     min-height: unset;
     max-height: 708px;
