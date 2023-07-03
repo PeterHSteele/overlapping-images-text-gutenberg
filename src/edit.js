@@ -55,13 +55,7 @@ const genSrcset = media => {
       srcset += sizeObj.source_url + ' ' + sizeObj.width+'w'
       if ( 'full' != size ) srcset += ', '
     })
-    
   }
-
-  if (!srcset){
-    console.log('srcset failed')
-  }
-
   return srcset;
 }
 
@@ -115,7 +109,7 @@ export default function Edit({ attributes, setAttributes }) {
     setAttributes(newAttributes)
   }
 
-  const togglePicker = () => setPicker(!picker)
+  const togglePicker = () => setPicker( !picker )
 
   const bgPicker = () => (
     <ColorPicker 

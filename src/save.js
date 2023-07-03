@@ -28,7 +28,7 @@ export default function save({ attributes }) {
           src={urlFirst} 
           alt={altFirst} 
           srcset={srcsetFirst} 
-          sizes="(max-width: 650px) 282px, (max-width: 768px) 360px, (max-width: 1368px) 532px, 2560px"
+          sizes="(max-width: 650px) 257px, (max-width: 768px) 352px, (max-width: 1368px) 500px, 2560px"
           /> 
         )}
       </div>
@@ -38,7 +38,7 @@ export default function save({ attributes }) {
         class="overlapping-imgs-image-two" 
         src={urlSecond}
         srcset={srcsetSecond}
-        sizes="(max-width: 650px) 282px, (max-width: 768px) 360px, (max-width: 1368px) 532px, 2560px" 
+        sizes="(max-width: 650px) 289px, (max-width: 768px) 384px, (max-width: 1368px) 532px, 2560px" 
         alt='' 
         role='presentation' />
         )}

@@ -493,9 +493,6 @@ const genSrcset = media => {
       if ('full' != size) srcset += ', ';
     });
   }
-  if (!srcset) {
-    console.log('srcset failed');
-  }
   return srcset;
 };
 function Edit(_ref) {
@@ -735,14 +732,14 @@ function save(_ref) {
     src: urlFirst,
     alt: altFirst,
     srcset: srcsetFirst,
-    sizes: "(max-width: 650px) 282px, (max-width: 768px) 360px, (max-width: 1368px) 532px, 2560px"
+    sizes: "(max-width: 650px) 257px, (max-width: 768px) 352px, (max-width: 1368px) 500px, 2560px"
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "overlapping-imgs-image-two-wrap"
   }, urlSecond && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     class: "overlapping-imgs-image-two",
     src: urlSecond,
     srcset: srcsetSecond,
-    sizes: "(max-width: 650px) 282px, (max-width: 768px) 360px, (max-width: 1368px) 532px, 2560px",
+    sizes: "(max-width: 650px) 289px, (max-width: 768px) 384px, (max-width: 1368px) 532px, 2560px",
     alt: "",
     role: "presentation"
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {

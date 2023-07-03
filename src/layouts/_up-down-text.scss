@@ -1,3 +1,5 @@
+@use 'variables' as *;
+
 .wp-block-overlapping-images-block-overlapping-images.layout-up-down-text{
   
   .overlapping-imgs-innerblocks-wrap{
@@ -16,7 +18,7 @@
   }
   
   
-  @container (max-width: 1368px){
+  @container (max-width: #{$large}){
     .overlapping-imgs-image-one-wrap{
       grid-column: 2 / 9;
     }
@@ -30,14 +32,14 @@
     }
   }
 
-  @container (max-width: 1070px){
+  @container (max-width: #{$medium} ){
     .overlapping-imgs-innerblocks-wrap{
       grid-row: 3 / 10;
     }
   }
 
 
-  @container (max-width: 768px){
+  @container (max-width: #{$tablet} ){
 
     .overlapping-imgs-innerblocks-wrap{
       grid-column: 5 / 15;
@@ -56,20 +58,8 @@
 
   }
 
-  @container (max-width: 650px){
+  @container (max-width: #{$lg-mobile} ){
       
-    .overlapping-imgs-image-one-wrap{
-      grid-column: 3 / 11;
-      
-    }
-
-    .overlapping-imgs-image-two-wrap{
-      grid-column: 9 / 17;
-    }
-
-  }
-
-  @container (max-width: 584px){
     .overlapping-imgs-innerblocks-wrap{
       grid-column: 4 / 16;
     }
@@ -86,7 +76,7 @@
 
   }
 
-  @container (max-width: 488px){
+  @container (max-width: #{$mobile} ){
 
     .overlapping-imgs-innerblocks-wrap{
       grid-column: 2 / 18;
@@ -102,7 +92,7 @@
 
   }
 
-  @container (max-width: 368px){
+  @container (max-width: #{$small}){
 
     .overlapping-imgs-innerblocks-wrap{
       grid-column: 1 / 19;
