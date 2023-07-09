@@ -1,39 +1,20 @@
-=== Ps Collage ===
+=== Overlapping Images Block ===
 Contributors:      Peter Steele
-Tags:              block
+Tags:              block, image, 
 Tested up to:      6.2
 Stable tag:        0.1.0
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
-Example block scaffolded with Create Block tool.
+Gutenberg block showing overlapping image and text content.
 
 == Description ==
 
-This is the long description. No limit, and you can use Markdown (as well as in the following sections).
+Creates a section of content consisting of one or two images decoratively overlapping each other and accompanied by 
+a card for text content like headings, paragraphs and call to action buttons. The block accomodates normal, wide, and full-page
+width layouts. You can arrange the block's three elements (two images and one text), in four different sub-layouts. This allows for
+better re-usability in different areas of your site.
 
-For backwards compatibility, if this section is missing, the full length of the short description will be used, and
-Markdown parsed.
-
-== Installation ==
-
-This section describes how to install the plugin and get it working.
-
-e.g.
-
-1. Upload the plugin files to the `/wp-content/plugins/ps-collage` directory, or install the plugin through the WordPress plugins screen directly.
-1. Activate the plugin through the 'Plugins' screen in WordPress
-
-
-== Frequently Asked Questions ==
-
-= A question that someone might have =
-
-An answer to that question.
-
-= What about foo bar? =
-
-Answer to foo bar dilemma.
 
 == Screenshots ==
 
@@ -48,8 +29,6 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 = 0.1.0 =
 * Release
 
-== Arbitrary section ==
+== Contact ==
 
-You may provide arbitrary sections, in the same format as the ones above. This may be of use for extremely complicated
-plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
-"installation." Arbitrary sections will be shown below the built-in sections outlined above.
+Please get in touch if you have any feedback about the block. I would be very happy to talk to you.
