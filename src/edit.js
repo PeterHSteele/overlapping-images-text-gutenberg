@@ -30,7 +30,7 @@ import './editor.scss';
  * @return {WPElement} Element to render.
  */
 
-import { ColorPicker, Button, Panel, PanelBody, __experimentalGrid as Grid } from '@wordpress/components';
+import { ColorPicker, Button, Panel, PanelBody, __experimentalGrid as Grid, Spinner } from '@wordpress/components';
 
 import SelectWrap from './SelectWrap'; 
 import BackdropColorControl from './BackdropColorControl'
@@ -63,6 +63,7 @@ export default function Edit({ attributes, setAttributes }) {
   let [ selectedEl, setSelectedEl ] = useState(1)
   let [ picker, setPicker ] = useState(false)
   let [ anchor, setAnchor] = useState()
+  let [ uploading, setUploading ] = useState([false, false])
  
   const handleSelectEl = el => {
     return () => {
@@ -70,13 +71,23 @@ export default function Edit({ attributes, setAttributes }) {
     }
   }
 
+  const handleSetUploading = ( whichImage, isUploading ) => {
+    let index = 'First' == whichImage ? 0 : 1,
+    copy = uploading.slice()
+    copy[index] = isUploading
+    setUploading(copy)
+  }
+
   const onSelect = whichImage => {
     return media => {
       let attributes = {}
 
       if ( isBlobURL( media.url ) ){
+        handleSetUploading( whichImage, true )
         return
       }
+
+      handleSetUploading( whichImage, false);
       
       if ( !media || !media.url || isBlobURL( media.url ) ) {
         attributes['url' + whichImage] = '',
@@ -106,6 +117,7 @@ export default function Edit({ attributes, setAttributes }) {
     const newAttributes = {
       ['url'+whichImage]: undefined
     }
+    handleSetUploading( whichImage, false )
     setAttributes(newAttributes)
   }
 
@@ -144,7 +156,12 @@ export default function Edit({ attributes, setAttributes }) {
       className={`overlapping-imgs-image-one-wrap ${ 1==selectedEl? 'el-selected' : '' }`}
       handleClick={handleSelectEl(1)}
       >
-      { attributes.urlFirst ?
+      { 
+        uploading[0] ? (
+        <div className='overlapping-imgs-uploading'>
+          <Spinner />
+        </div> 
+        ) : attributes.urlFirst ?
         <img src={urlFirst} class="overlapping-imgs-image-one"  alt={altFirst} /> :
         <MediaPlaceholder 
         onSelect={ onSelect('First') }
@@ -159,8 +176,12 @@ export default function Edit({ attributes, setAttributes }) {
       className={`overlapping-imgs-image-two-wrap ${ 2 == selectedEl ? 'el-selected' : ''}`} 
       handleClick={handleSelectEl(2)}
       >
-      {
-        attributes.urlSecond ?
+      { 
+        uploading[1] ? (
+        <div className='overlapping-imgs-uploading'>
+          <Spinner />
+        </div>
+        ) : attributes.urlSecond ?
         <img src={attributes.urlSecond} class="overlapping-imgs-image-two" alt={attributes.altSecond} /> :
         <MediaPlaceholder 
         onSelect={ onSelect('Second') }
