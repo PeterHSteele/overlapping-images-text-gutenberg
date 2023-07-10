@@ -503,17 +503,26 @@ function Edit(_ref) {
   let [selectedEl, setSelectedEl] = (0,react__WEBPACK_IMPORTED_MODULE_7__.useState)(1);
   let [picker, setPicker] = (0,react__WEBPACK_IMPORTED_MODULE_7__.useState)(false);
   let [anchor, setAnchor] = (0,react__WEBPACK_IMPORTED_MODULE_7__.useState)();
+  let [uploading, setUploading] = (0,react__WEBPACK_IMPORTED_MODULE_7__.useState)([false, false]);
   const handleSelectEl = el => {
     return () => {
       return setSelectedEl(el);
     };
   };
+  const handleSetUploading = (whichImage, isUploading) => {
+    let index = 'First' == whichImage ? 0 : 1,
+      copy = uploading.slice();
+    copy[index] = isUploading;
+    setUploading(copy);
+  };
   const onSelect = whichImage => {
     return media => {
       let attributes = {};
       if ((0,_wordpress_blob__WEBPACK_IMPORTED_MODULE_10__.isBlobURL)(media.url)) {
+        handleSetUploading(whichImage, true);
         return;
       }
+      handleSetUploading(whichImage, false);
       if (!media || !media.url || (0,_wordpress_blob__WEBPACK_IMPORTED_MODULE_10__.isBlobURL)(media.url)) {
         attributes['url' + whichImage] = '', attributes['alt' + whichImage] = '', attributes['srcset' + whichImage] = '', attributes['id' + whichImage] = '';
         setAttributes(attributes);
@@ -537,6 +546,7 @@ function Edit(_ref) {
     const newAttributes = {
       ['url' + whichImage]: undefined
     };
+    handleSetUploading(whichImage, false);
     setAttributes(newAttributes);
   };
   const togglePicker = () => setPicker(!picker);
@@ -574,7 +584,9 @@ function Edit(_ref) {
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_SelectWrap__WEBPACK_IMPORTED_MODULE_5__["default"], {
     className: `overlapping-imgs-image-one-wrap ${1 == selectedEl ? 'el-selected' : ''}`,
     handleClick: handleSelectEl(1)
-  }, attributes.urlFirst ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+  }, uploading[0] ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "overlapping-imgs-uploading"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Spinner, null)) : attributes.urlFirst ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: urlFirst,
     class: "overlapping-imgs-image-one",
     alt: altFirst
@@ -587,7 +599,9 @@ function Edit(_ref) {
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_SelectWrap__WEBPACK_IMPORTED_MODULE_5__["default"], {
     className: `overlapping-imgs-image-two-wrap ${2 == selectedEl ? 'el-selected' : ''}`,
     handleClick: handleSelectEl(2)
-  }, attributes.urlSecond ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+  }, uploading[1] ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "overlapping-imgs-uploading"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Spinner, null)) : attributes.urlSecond ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: attributes.urlSecond,
     class: "overlapping-imgs-image-two",
     alt: attributes.altSecond
