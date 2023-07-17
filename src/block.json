@@ -9,10 +9,10 @@
 	"description": "Overlapping text and image block.",
 	"supports": {
 		"html": false,
-    "color": {
-      "background": true
-    },
-    "align": ["full", "wide"]
+    "align": ["full", "wide"],
+    "spacing":{
+      "margin": [ "top", "bottom" ]
+    }
 	},
   "attributes": {
     "urlFirst": {
@@ -34,6 +34,9 @@
       "source": "attribute",
       "attribute": "srcset"
     },
+    "idFirst": {
+      "type": "number"
+    },
     "urlSecond": {
       "type": "string",
       "selector": "img.overlapping-imgs-image-two",
@@ -45,6 +48,9 @@
       "selector": "img.overlapping-imgs-image-two",
       "source": "attribute",
       "attribute": "srcset"
+    },
+    "idSecond":{
+      "type": "number"
     },
     "backdropColor": {
       "type": "string",

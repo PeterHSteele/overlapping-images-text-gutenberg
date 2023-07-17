@@ -6,6 +6,7 @@
  * Requires PHP:      7.0
  * Version:           0.1.0
  * Author:            Peter Steele
+ * Author URI:        peterhsteele.com
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       overlapping-images
@@ -24,3 +25,4 @@ function overlapping_images_block_init() {
 	register_block_type( __DIR__ . '/build' );
 }
 add_action( 'init', 'overlapping_images_block_init' );
+

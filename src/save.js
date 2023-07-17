@@ -17,28 +17,25 @@ import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
  */
 
 export default function save({ attributes }) {
-  const blockProps = useBlockProps.save({className: 'layout-' + attributes.layout});
-  const { urlFirst, altFirst, urlSecond, backdropColor, srcsetFirst, srcsetSecond } = attributes
+  const blockProps = useBlockProps.save({className: 'layout-' + attributes.layout}),
+  { urlFirst, altFirst, urlSecond, backdropColor, idFirst, idSecond } = attributes
+
 	return (
     <div { ...blockProps }>
       <div className='overlapping-imgs-backdrop' style={{background: backdropColor}}></div>
       <div className="overlapping-imgs-image-one-wrap">
         { urlFirst && (
-          <img class="overlapping-imgs-image-one" 
+          <img className={`overlapping-imgs-image-one wp-image-${idFirst}`} 
           src={urlFirst} 
           alt={altFirst} 
-          srcset={srcsetFirst} 
-          sizes="(max-width: 650px) 257px, (max-width: 768px) 352px, (max-width: 1368px) 500px, 2560px"
           /> 
         )}
       </div>
       <div className="overlapping-imgs-image-two-wrap">
         { urlSecond && (
         <img 
-        class="overlapping-imgs-image-two" 
+        className={`overlapping-imgs-image-two wp-image-${idSecond}`} 
         src={urlSecond}
-        srcset={srcsetSecond}
-        sizes="(max-width: 650px) 289px, (max-width: 768px) 384px, (max-width: 1368px) 532px, 2560px" 
         alt='' 
         role='presentation' />
         )}

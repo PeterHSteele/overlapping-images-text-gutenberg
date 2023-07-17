@@ -42,23 +42,6 @@ import { useSelect, useDispatch } from '@wordpress/data'
 import { isBlobURL } from '@wordpress/blob';
 import { layoutButtonData } from './constants';
 
-const genSrcset = media => {
-  let srcset = ''
-  if ( media.hasOwnProperty( 'sizes' )){
-    ['medium', 'large', 'full'].forEach( size => {
-      srcset += media.sizes[size]?.url + ' ' + media.sizes[size]?.width + 'w'
-      if ( 'full' != size ) srcset += ', '
-    })
-  } else {
-    [ 'medium', 'large', 'full' ].forEach( size => {
-      let sizeObj = media.media_details.sizes[size]
-      srcset += sizeObj.source_url + ' ' + sizeObj.width+'w'
-      if ( 'full' != size ) srcset += ', '
-    })
-  }
-  return srcset;
-}
-
 export default function Edit({ attributes, setAttributes }) {
   let [ selectedEl, setSelectedEl ] = useState(1)
   let [ picker, setPicker ] = useState(false)
@@ -87,24 +70,22 @@ export default function Edit({ attributes, setAttributes }) {
         return
       }
 
-      handleSetUploading( whichImage, false);
+      handleSetUploading( whichImage, false );
       
       if ( !media || !media.url || isBlobURL( media.url ) ) {
         attributes['url' + whichImage] = '',
         attributes['alt' + whichImage] =  '',
-        attributes['srcset' + whichImage] = '',
         attributes['id' + whichImage] = ''
 
         setAttributes( attributes )
         return;
       }
 
-      let srcset = genSrcset( media )
-
       attributes['url'+whichImage] = media.url
-      attributes['srcset'+whichImage] = srcset
       attributes['id'+whichImage] = media.id
-      attributes['alt'+whichImage] = media.alt
+      if ( "First" == whichImage ){
+        attributes['alt'+whichImage] = media.alt
+      }
   
       setAttributes( attributes )
     }

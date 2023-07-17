@@ -479,22 +479,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const genSrcset = media => {
-  let srcset = '';
-  if (media.hasOwnProperty('sizes')) {
-    ['medium', 'large', 'full'].forEach(size => {
-      srcset += media.sizes[size]?.url + ' ' + media.sizes[size]?.width + 'w';
-      if ('full' != size) srcset += ', ';
-    });
-  } else {
-    ['medium', 'large', 'full'].forEach(size => {
-      let sizeObj = media.media_details.sizes[size];
-      srcset += sizeObj.source_url + ' ' + sizeObj.width + 'w';
-      if ('full' != size) srcset += ', ';
-    });
-  }
-  return srcset;
-};
 function Edit(_ref) {
   let {
     attributes,
@@ -524,15 +508,15 @@ function Edit(_ref) {
       }
       handleSetUploading(whichImage, false);
       if (!media || !media.url || (0,_wordpress_blob__WEBPACK_IMPORTED_MODULE_10__.isBlobURL)(media.url)) {
-        attributes['url' + whichImage] = '', attributes['alt' + whichImage] = '', attributes['srcset' + whichImage] = '', attributes['id' + whichImage] = '';
+        attributes['url' + whichImage] = '', attributes['alt' + whichImage] = '', attributes['id' + whichImage] = '';
         setAttributes(attributes);
         return;
       }
-      let srcset = genSrcset(media);
       attributes['url' + whichImage] = media.url;
-      attributes['srcset' + whichImage] = srcset;
       attributes['id' + whichImage] = media.id;
-      attributes['alt' + whichImage] = media.alt;
+      if ("First" == whichImage) {
+        attributes['alt' + whichImage] = media.alt;
+      }
       setAttributes(attributes);
     };
   };
@@ -724,16 +708,16 @@ function save(_ref) {
     attributes
   } = _ref;
   const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save({
-    className: 'layout-' + attributes.layout
-  });
-  const {
-    urlFirst,
-    altFirst,
-    urlSecond,
-    backdropColor,
-    srcsetFirst,
-    srcsetSecond
-  } = attributes;
+      className: 'layout-' + attributes.layout
+    }),
+    {
+      urlFirst,
+      altFirst,
+      urlSecond,
+      backdropColor,
+      idFirst,
+      idSecond
+    } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "overlapping-imgs-backdrop",
     style: {
@@ -742,18 +726,14 @@ function save(_ref) {
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "overlapping-imgs-image-one-wrap"
   }, urlFirst && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-    class: "overlapping-imgs-image-one",
+    className: `overlapping-imgs-image-one wp-image-${idFirst}`,
     src: urlFirst,
-    alt: altFirst,
-    srcset: srcsetFirst,
-    sizes: "(max-width: 650px) 257px, (max-width: 768px) 352px, (max-width: 1368px) 500px, 2560px"
+    alt: altFirst
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "overlapping-imgs-image-two-wrap"
   }, urlSecond && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-    class: "overlapping-imgs-image-two",
+    className: `overlapping-imgs-image-two wp-image-${idSecond}`,
     src: urlSecond,
-    srcset: srcsetSecond,
-    sizes: "(max-width: 650px) 289px, (max-width: 768px) 384px, (max-width: 1368px) 532px, 2560px",
     alt: "",
     role: "presentation"
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -893,7 +873,7 @@ module.exports = window["wp"]["primitives"];
   \************************/
 /***/ (function(module) {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"overlapping-images-block/overlapping-images","version":"0.1.0","title":"Overlapping Images","category":"common","icon":"images-alt","description":"Overlapping text and image block.","supports":{"html":false,"color":{"background":true},"align":["full","wide"]},"attributes":{"urlFirst":{"type":"string","selector":"img.overlapping-imgs-image-one","source":"attribute","attribute":"src"},"altFirst":{"type":"string","src":"attribute","attribute":"alt","selector":"img.overlapping-imgs-image-one","default":""},"srcsetFirst":{"type":"string","selector":"img.overlapping-imgs-image-one","source":"attribute","attribute":"srcset"},"urlSecond":{"type":"string","selector":"img.overlapping-imgs-image-two","source":"attribute","attribute":"src"},"srcsetSecond":{"type":"string","selector":"img.overlapping-imgs-image-two","source":"attribute","attribute":"srcset"},"backdropColor":{"type":"string","default":"#faf3f0"},"align":{"type":"string","default":"full"},"layout":{"type":"string","default":"down-up-text"}},"textdomain":"overlapping-images","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"overlapping-images-block/overlapping-images","version":"0.1.0","title":"Overlapping Images","category":"common","icon":"images-alt","description":"Overlapping text and image block.","supports":{"html":false,"align":["full","wide"],"spacing":{"margin":["top","bottom"]}},"attributes":{"urlFirst":{"type":"string","selector":"img.overlapping-imgs-image-one","source":"attribute","attribute":"src"},"altFirst":{"type":"string","src":"attribute","attribute":"alt","selector":"img.overlapping-imgs-image-one","default":""},"srcsetFirst":{"type":"string","selector":"img.overlapping-imgs-image-one","source":"attribute","attribute":"srcset"},"idFirst":{"type":"number"},"urlSecond":{"type":"string","selector":"img.overlapping-imgs-image-two","source":"attribute","attribute":"src"},"srcsetSecond":{"type":"string","selector":"img.overlapping-imgs-image-two","source":"attribute","attribute":"srcset"},"idSecond":{"type":"number"},"backdropColor":{"type":"string","default":"#faf3f0"},"align":{"type":"string","default":"full"},"layout":{"type":"string","default":"down-up-text"}},"textdomain":"overlapping-images","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

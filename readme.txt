@@ -1,6 +1,6 @@
 === Overlapping Images Block ===
 Contributors:      Peter Steele
-Tags:              block, image, 
+Tags:              block, image
 Tested up to:      6.2
 Stable tag:        0.1.0
 License:           GPL-2.0-or-later
@@ -13,8 +13,7 @@ Gutenberg block showing overlapping image and text content.
 Creates a section of content consisting of one or two images decoratively overlapping each other and accompanied by 
 a card for text content like headings, paragraphs and call to action buttons. The block accomodates normal, wide, and full-page
 width layouts. You can arrange the block's three elements (two images and one text), in four different sub-layouts. This allows for
-better re-usability in different areas of your site.
-
+better re-usability in different areas of your site. 
 
 == Screenshots ==
 
@@ -31,4 +30,4 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 
 == Contact ==
 
-Please get in touch if you have any feedback about the block. I would be very happy to talk to you.
+Please get in touch via my website (peterhsteele.com) or twitter (@PeterSteele10) if you have any feedback about the block or questions about how to use it. I would be very happy to talk to you!
