@@ -133,52 +133,58 @@ export default function Edit({ attributes, setAttributes }) {
         />
       </BlockControls>
       <div className="overlapping-imgs-backdrop" ref={setAnchor} style={{background: backdropColor}}></div>
-      <SelectWrap 
-      className={`overlapping-imgs-image-one-wrap ${ 1==selectedEl? 'el-selected' : '' }`}
-      handleClick={handleSelectEl(1)}
-      >
-      { 
-        uploading[0] ? (
-        <div className='overlapping-imgs-uploading'>
-          <Spinner />
-        </div> 
-        ) : attributes.urlFirst ?
-        <img src={urlFirst} class="overlapping-imgs-image-one"  alt={altFirst} /> :
-        <MediaPlaceholder 
-        onSelect={ onSelect('First') }
-        icon={icon}
-        accept={"image/*"}
-        allowedTypes={['image']}
-        onError={onUploadError("First")}
-        />
-      }
-      </SelectWrap>
-      <SelectWrap 
-      className={`overlapping-imgs-image-two-wrap ${ 2 == selectedEl ? 'el-selected' : ''}`} 
-      handleClick={handleSelectEl(2)}
-      >
-      { 
-        uploading[1] ? (
-        <div className='overlapping-imgs-uploading'>
-          <Spinner />
+      <div className="overlapping-imgs-center-content">
+        <SelectWrap 
+        className={`overlapping-imgs-image-one-wrap ${ 1==selectedEl? 'el-selected' : '' }`}
+        handleClick={handleSelectEl(1)}
+        >
+        { 
+          uploading[0] ? (
+          <div className='overlapping-imgs-uploading'>
+            <Spinner />
+          </div> 
+          ) : attributes.urlFirst ?
+          <img src={urlFirst} class="overlapping-imgs-image-one"  alt={altFirst} /> :
+          <MediaPlaceholder 
+          onSelect={ onSelect('First') }
+          icon={icon}
+          accept={"image/*"}
+          allowedTypes={['image']}
+          onError={onUploadError("First")}
+          />
+        }
+        </SelectWrap>
+        <SelectWrap 
+        className={`overlapping-imgs-image-two-wrap ${ 2 == selectedEl ? 'el-selected' : ''}`} 
+        handleClick={handleSelectEl(2)}
+        >
+        { 
+          uploading[1] ? (
+          <div className='overlapping-imgs-uploading'>
+            <Spinner />
+          </div>
+          ) : attributes.urlSecond ?
+          <img src={attributes.urlSecond} class="overlapping-imgs-image-two" alt={attributes.altSecond} /> :
+          <MediaPlaceholder 
+          onSelect={ onSelect('Second') }
+          icon={icon}
+          accept={"image/*"}
+          allowedTypes={['image']}
+          onError={onUploadError("Second")}
+          />
+        }
+        </SelectWrap>
+        <div
+        className="overlapping-imgs-innerblocks-wrap"
+        >
+          <SelectWrap 
+          className={`overlapping-imgs-card ${ 3 == selectedEl ? 'el-selected' : ''}`}
+          handleClick={handleSelectEl(3)}
+          >
+            <InnerBlocks />
+          </SelectWrap>
         </div>
-        ) : attributes.urlSecond ?
-        <img src={attributes.urlSecond} class="overlapping-imgs-image-two" alt={attributes.altSecond} /> :
-        <MediaPlaceholder 
-        onSelect={ onSelect('Second') }
-        icon={icon}
-        accept={"image/*"}
-        allowedTypes={['image']}
-        onError={onUploadError("Second")}
-        />
-      }
-      </SelectWrap>
-      <SelectWrap 
-      className={`overlapping-imgs-innerblocks-wrap ${ 3 == selectedEl ? 'el-selected' : ''}`}
-      handleClick={handleSelectEl(3)}
-      >
-        <InnerBlocks />
-      </SelectWrap>
+      </div>
       <InspectorControls>
         <Panel>
           <PanelBody 

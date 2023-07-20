@@ -13,7 +13,7 @@
 
 .overlapping-imgs-image-one-wrap,
 .overlapping-imgs-image-two-wrap,
-.overlapping-imgs-innerblocks-wrap {
+.overlapping-imgs-card {
   background: none;
   color: inherit;
   border: none;
@@ -40,7 +40,7 @@
 
 .wp-block-overlapping-images-block-overlapping-images.is-selected .overlapping-imgs-image-one-wrap:not(.el-selected):hover,
 .wp-block-overlapping-images-block-overlapping-images.is-selected .overlapping-imgs-image-two-wrap:not(.el-selected):hover,
-.wp-block-overlapping-images-block-overlapping-images.is-selected .overlapping-imgs-innerblocks-wrap:hover {
+.wp-block-overlapping-images-block-overlapping-images.is-selected .overlapping-imgs-card:hover {
   border: 2px solid rgb(0, 124, 186);
 }
 

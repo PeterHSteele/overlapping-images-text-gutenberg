@@ -23,25 +23,31 @@ export default function save({ attributes }) {
 	return (
     <div { ...blockProps }>
       <div className='overlapping-imgs-backdrop' style={{background: backdropColor}}></div>
-      <div className="overlapping-imgs-image-one-wrap">
-        { urlFirst && (
-          <img className={`overlapping-imgs-image-one wp-image-${idFirst}`} 
-          src={urlFirst} 
-          alt={altFirst} 
-          /> 
-        )}
-      </div>
-      <div className="overlapping-imgs-image-two-wrap">
-        { urlSecond && (
-        <img 
-        className={`overlapping-imgs-image-two wp-image-${idSecond}`} 
-        src={urlSecond}
-        alt='' 
-        role='presentation' />
-        )}
-      </div>
-      <div className="overlapping-imgs-innerblocks-wrap">
-        <InnerBlocks.Content />
+      <div className="overlapping-imgs-center-content">
+        <div className="overlapping-imgs-image-one-wrap">
+          { urlFirst && (
+            <img 
+            className={`overlapping-imgs-image-one wp-image-${idFirst}`} 
+            src={urlFirst} 
+            alt={altFirst} 
+            sizes="(max"
+            /> 
+          )}
+        </div>
+        <div className="overlapping-imgs-image-two-wrap">
+          { urlSecond && (
+          <img 
+          className={`overlapping-imgs-image-two wp-image-${idSecond}`} 
+          src={urlSecond}
+          alt='' 
+          role='presentation' />
+          )}
+        </div>
+        <div className="overlapping-imgs-innerblocks-wrap">
+          <div className="overlapping-imgs-card">
+            <InnerBlocks.Content />
+          </div>
+        </div>
       </div>
     </div>
 	);
