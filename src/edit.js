@@ -75,14 +75,13 @@ export default function Edit({ attributes, setAttributes }) {
       if ( !media || !media.url || isBlobURL( media.url ) ) {
         attributes['url' + whichImage] = '',
         attributes['alt' + whichImage] =  '',
-        attributes['id' + whichImage] = ''
 
         setAttributes( attributes )
         return;
       }
 
-      attributes['url'+whichImage] = media.url
       attributes['id'+whichImage] = media.id
+      attributes['url'+whichImage] = media.url
       if ( "First" == whichImage ){
         attributes['alt'+whichImage] = media.alt
       }

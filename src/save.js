@@ -27,18 +27,19 @@ export default function save({ attributes }) {
         <div className="overlapping-imgs-image-one-wrap">
           { urlFirst && (
             <img 
-            className={`overlapping-imgs-image-one wp-image-${idFirst}`} 
+            className={`overlapping-imgs-image-one wp-image-${idFirst}`}
             src={urlFirst} 
-            alt={altFirst} 
-            sizes="(max"
+            sizes="(max-width: 584px) 260px, (max-width: 700px) 280px, (max-width: 900px) 418px, (max-width: 1070px) 384px, (max-width: 1240px) 450px, (max-width: 1425px) 443px, 443px"
+            alt={altFirst}
             /> 
           )}
         </div>
         <div className="overlapping-imgs-image-two-wrap">
           { urlSecond && (
           <img 
-          className={`overlapping-imgs-image-two wp-image-${idSecond}`} 
+          className={`overlapping-imgs-image-two wp-image-${idSecond}`}
           src={urlSecond}
+          sizes="(max-width: 488px) 241px, (max-width: 584px) 292px, (max-width: 700px) 312px, (max-width: 900px) 450px, (max-width: 1070px) 417px, (max-width: 1240px) 483px, (max-width: 1425px) 475px, 475px"
           alt='' 
           role='presentation' />
           )}
