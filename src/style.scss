@@ -39,9 +39,9 @@
 
     img.overlapping-imgs-image-one,
     img.overlapping-imgs-image-two{
+      object-fit: cover;
       height: 100%;
       width: 100%;
-      object-fit: cover;
       box-sizing: border-box;
     }
 

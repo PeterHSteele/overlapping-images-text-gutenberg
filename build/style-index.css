@@ -479,12 +479,16 @@
     width: 100%;
   }
 }
+.wp-block-overlapping-images-block-overlapping-images .overlapping-imgs-center-content .overlapping-imgs-image-one-wrap,
+.wp-block-overlapping-images-block-overlapping-images .overlapping-imgs-center-content .overlapping-imgs-image-two-wrap {
+  /*overflow-y: hidden;*/
+}
 .wp-block-overlapping-images-block-overlapping-images .overlapping-imgs-center-content img.overlapping-imgs-image-one,
 .wp-block-overlapping-images-block-overlapping-images .overlapping-imgs-center-content img.overlapping-imgs-image-two {
-  height: 100%;
-  width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  height: 100%;
+  width: 100%;
   box-sizing: border-box;
 }
 .wp-block-overlapping-images-block-overlapping-images .overlapping-imgs-center-content .overlapping-imgs-image-one-wrap img {
