@@ -144,13 +144,19 @@ export default function Edit({ attributes, setAttributes }) {
           </div> 
           ) : attributes.urlFirst ?
           <img src={urlFirst} class="overlapping-imgs-image-one"  alt={altFirst} /> :
+          (
           <MediaPlaceholder 
           onSelect={ onSelect('First') }
           icon={icon}
           accept={"image/*"}
           allowedTypes={['image']}
           onError={onUploadError("First")}
+          className='overlapping-imgs-placeholder'
+          labels={{
+            instructions: __('Suggested Size: 960px width, 1200px height', 'overlapping-images')
+          }}
           />
+          )
         }
         </SelectWrap>
         <SelectWrap 
@@ -169,7 +175,11 @@ export default function Edit({ attributes, setAttributes }) {
           icon={icon}
           accept={"image/*"}
           allowedTypes={['image']}
+          className='overlapping-imgs-placeholder'
           onError={onUploadError("Second")}
+          labels={{
+            instructions: __('Suggested Size: 960px width, 1280px height', 'overlapping-images')
+          }}
           />
         }
         </SelectWrap>

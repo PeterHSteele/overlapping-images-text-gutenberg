@@ -33,3 +33,20 @@ const genSrcset = media => {
   }
   return srcset;
 }
+
+<div>
+            <div className="suggested-size">
+              <p>
+                <span>{__( 'Suggested Size:', 'overlapping-images' )}</span>
+                <span>{__('Width: 960px', 'overlapping-images')}</span>
+                <span>{__('Height: 1200px')}</span>
+              </p>
+            </div>
+            <MediaPlaceholder 
+            onSelect={ onSelect('First') }
+            icon={icon}
+            accept={"image/*"}
+            allowedTypes={['image']}
+            onError={onUploadError("First")}
+            />
+          </div>

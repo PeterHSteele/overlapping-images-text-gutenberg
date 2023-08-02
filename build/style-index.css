@@ -1,17 +1,6 @@
 /*!***************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/style.scss ***!
   \***************************************************************************************************************************************************************************************************************************************/
-/*
-@mixin medium-small-down-up-text{
-  .overlapping-imgs-image-one-wrap{
-    grid-column: 3 / 11;
-  }
-
-  .overlapping-imgs-image-two-wrap{
-    grid-column: 9 / 17;
-  }
-}
-*/
 .wp-block-overlapping-images-block-overlapping-images.layout-down-up-text .overlapping-imgs-center-content .overlapping-imgs-innerblocks-wrap {
   grid-column: 12/17;
   grid-row: 4/10;
@@ -356,7 +345,7 @@
     grid-column: 11/18;
     grid-row: 4/11;
   }
-  @media (max-width: 768) {
+  @media (max-width: 900px) {
     .wp-block-overlapping-images-block-overlapping-images.layout-text-down-up .overlapping-imgs-image-one-wrap,
     .wp-block-overlapping-images-block-overlapping-images.layout-text-up-down .overlapping-imgs-image-one-wrap,
     .wp-block-overlapping-images-block-overlapping-images.layout-up-down-text .overlapping-imgs-image-one-wrap,
@@ -379,7 +368,7 @@
       grid-row: 3/9;
     }
   }
-  @media (max-width: 650) {
+  @media (max-width: 700px) {
     .wp-block-overlapping-images-block-overlapping-images.layout-text-down-up .overlapping-imgs-innerblocks-wrap,
     .wp-block-overlapping-images-block-overlapping-images.layout-text-up-down .overlapping-imgs-innerblocks-wrap,
     .wp-block-overlapping-images-block-overlapping-images.layout-up-down-text .overlapping-imgs-innerblocks-wrap,
@@ -401,7 +390,7 @@
       grid-row: 1/7;
     }
   }
-  @media (max-width: 488) {
+  @media (max-width: 584px) {
     .wp-block-overlapping-images-block-overlapping-images.layout-text-down-up .overlapping-imgs-innerblocks-wrap,
     .wp-block-overlapping-images-block-overlapping-images.layout-text-up-down .overlapping-imgs-innerblocks-wrap,
     .wp-block-overlapping-images-block-overlapping-images.layout-up-down-text .overlapping-imgs-innerblocks-wrap,
@@ -421,7 +410,7 @@
       grid-column: 9/18;
     }
   }
-  @media (max-width: 368) {
+  @media (max-width: 488px) {
     .wp-block-overlapping-images-block-overlapping-images.layout-text-down-up .overlapping-imgs-innerblocks-wrap,
     .wp-block-overlapping-images-block-overlapping-images.layout-text-up-down .overlapping-imgs-innerblocks-wrap,
     .wp-block-overlapping-images-block-overlapping-images.layout-up-down-text .overlapping-imgs-innerblocks-wrap,
@@ -441,12 +430,20 @@
       grid-column: 7/19;
     }
   }
-  @media (max-width: 1070) {
+  @media (max-width: 1425px) {
+    .wp-block-overlapping-images-block-overlapping-images.layout-text-down-up .center-content,
+    .wp-block-overlapping-images-block-overlapping-images.layout-text-up-down .center-content,
+    .wp-block-overlapping-images-block-overlapping-images.layout-up-down-text .center-content,
+    .wp-block-overlapping-images-block-overlapping-images.layout-down-up-text .center-content {
+      width: 100%;
+    }
+  }
+  @media (max-width: 1070px) {
     .overlapping-imgs-innerblocks-wrap {
       padding: 16px;
     }
   }
-  @media (max-width: 768) {
+  @media (max-width: 900px) {
     .wp-block-overlapping-images-block-overlapping-images .overlapping-imgs-innerblocks-wrap {
       z-index: 1;
     }
@@ -454,7 +451,7 @@
       z-index: 0;
     }
   }
-  @media (max-width: 650) {
+  @media (max-width: 700px) {
     .wp-block-overlapping-images-block-overlapping-images .overlapping-imgs-innerblocks-wrap {
       grid-column: 4/16;
     }
@@ -478,10 +475,6 @@
   .wp-block-overlapping-images-block-overlapping-images .overlapping-imgs-center-content {
     width: 100%;
   }
-}
-.wp-block-overlapping-images-block-overlapping-images .overlapping-imgs-center-content .overlapping-imgs-image-one-wrap,
-.wp-block-overlapping-images-block-overlapping-images .overlapping-imgs-center-content .overlapping-imgs-image-two-wrap {
-  /*overflow-y: hidden;*/
 }
 .wp-block-overlapping-images-block-overlapping-images .overlapping-imgs-center-content img.overlapping-imgs-image-one,
 .wp-block-overlapping-images-block-overlapping-images .overlapping-imgs-center-content img.overlapping-imgs-image-two {

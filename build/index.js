@@ -580,7 +580,11 @@ function Edit(_ref) {
     icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_12__["default"],
     accept: "image/*",
     allowedTypes: ['image'],
-    onError: onUploadError("First")
+    onError: onUploadError("First"),
+    className: "overlapping-imgs-placeholder",
+    labels: {
+      instructions: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Suggested Size: 960px width, 1200px height', 'overlapping-images')
+    }
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_SelectWrap__WEBPACK_IMPORTED_MODULE_5__["default"], {
     className: `overlapping-imgs-image-two-wrap ${2 == selectedEl ? 'el-selected' : ''}`,
     handleClick: handleSelectEl(2)
@@ -595,7 +599,11 @@ function Edit(_ref) {
     icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_12__["default"],
     accept: "image/*",
     allowedTypes: ['image'],
-    onError: onUploadError("Second")
+    className: "overlapping-imgs-placeholder",
+    onError: onUploadError("Second"),
+    labels: {
+      instructions: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Suggested Size: 960px width, 1280px height', 'overlapping-images')
+    }
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "overlapping-imgs-innerblocks-wrap"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_SelectWrap__WEBPACK_IMPORTED_MODULE_5__["default"], {
